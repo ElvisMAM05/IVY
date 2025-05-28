@@ -2,14 +2,14 @@ async function postData(obj,endpoint) {
     const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`,{
         method: "POST",
         headers:{
-            "Content-type": "application/json; charset=UTF-8"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(obj)        
     })
     const res = await peticion.json()
+    console.log(res);
     return res
 }
-export {postData}
 
 
 async function deleteData(id,endpoint) {
@@ -31,7 +31,6 @@ async function deleteData(id,endpoint) {
         throw error;
     }
 }
-export {deleteData}
 
 async function patchData(info,endpoint,id) {
     try {
@@ -49,7 +48,6 @@ async function patchData(info,endpoint,id) {
           console.error(error);
       }
 }
-export {patchData}
 
 const getData=async(endpoint) => {
     try {
@@ -62,4 +60,4 @@ const getData=async(endpoint) => {
     }
 }
 
-export {getData}
+export default {getData,postData,patchData,deleteData}

@@ -2,17 +2,20 @@
 
 function Log_in() {
 
+  function Send(){}
 
   return (
-    <div>
+    <div className="Principal_Login">
       <h1>
-        Hola
+        Ivy
       </h1>
       <form action="">
         <label htmlFor="">Username</label>
         <input type="" />
         <label htmlFor="">Contraseña</label>
         <input type="" />
+        <button onClick={Send}>Enviar</button>
+
       </form>
     </div>
   )

@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+h1 {
+    color: #00A651; /* Verde para el título */
+    padding-left: 30%;
+
+}
+
+.Principal_Register{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 3%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 5%;
+
+}
+
+.btn {
+    background-color: #ccc;
+    color: #333;
+    padding: 2% 5%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #bbb;
+}
+
+.input-field {
+    width: 100%;
+    padding: 1%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #00A651; /* Color verde cuando se selecciona */
+    outline: none;
+}

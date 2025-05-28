@@ -1,8 +1,12 @@
-import React from 'react'
+
+import Register from '../Register/Register.jsx'
 
 const Page_Register = () => {
   return (
-    <div>Page_Register</div>
+    
+      <Register/>
+    
+    
   )
 }
 
