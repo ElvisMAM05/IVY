@@ -1,8 +1,10 @@
-import React from 'react'
+import "../Home/Home"
+import Home from "../Home/Home"
+
 
 function Home_page() {
   return (
-    <div>Home_page</div>
+   <Home/>
   )
 }
 

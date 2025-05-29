@@ -2,21 +2,22 @@ body {
     font-family: Arial, sans-serif;
     color: #333;
 }
-h1{
+h2{
     color: #00A651; /* Verde para el título */
-    
+    margin-top: 15%;
     text-align: center;
 
 }
 
-.Principal_Register{
+.Principal_Login{
+
     max-width: 300px;
     margin: 0 auto;
     padding: 4% 70px;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 3%;
+    margin-top: 5%;
 
 }
 
@@ -30,7 +31,7 @@ h1{
     cursor: pointer;
 }
 .btn:hover {
-    background-color: #bbb;
+    background-color: #248b26;
 }
 
 .input-field {
@@ -40,7 +41,9 @@ h1{
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s ease;
-    color: #00A651;
+    color: #0ba01a49;
+    text-align: center;
+
     margin: 3%; 
 }
 
@@ -58,62 +61,16 @@ label{
     text-align: center;
 }
 .header-image {
-    position: absolute;
+   position: absolute;
     margin-top: 20px;
     margin-left: 200px;
     width: 100%;
     max-width: 100px; 
 }
-
-.header-image_izq {
-    position: absolute;
-    margin-left: 10px;
-    margin-top: 15px;
-    width: 70px;
- 
-}
-
-.IMG-HOJA1{
-    position: absolute;
-    margin-top: 15px;
-    margin-left: -50px;
-    width: 10%;
-    max-width: 25px;    
-}
-
-.IMG-HOJA2{
-    position: absolute;
-    margin-top: 15px;
-    margin-left: -50px;
-    width: 10%;
-    max-width: 25px;    
-}
-
-.IMG-HOJA3{
-    position: absolute;
-    margin-top: 15px;
-    margin-left: -50px;
-    width: 10%;
-    max-width: 25px;    
-}
-
-.IMG-HOJA4{
-    position: absolute;
-    margin-top: 15px;
-    margin-left: -50px;
-    width: 10%;
-    max-width: 25px;     
-}
-
-.IMG-HOJA5{
-    position: absolute;
-    margin-top: 15px;
-    margin-left: -50px;
-    width: 10%;
-    max-width: 25px;    
-}
-
-p{
-
-    color: #00A651;
+.Logo{
+position: absolute;
+    margin-top: -50px;
+    margin-left: 80px;
+    width: 100%;
+    max-width: 140px; 
 }

@@ -1,0 +1,22 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+
+.headera{
+    height: 100px;
+    width: 100% ;
+    max-width: auto;
+    background-color: #c2dda8 ;
+}
+
+.Logo {
+position: absolute;
+left: 50%;
+transform: translateX(-90%);
+width: 90%;
+max-width: 200px;
+}

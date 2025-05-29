@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import Fetch from "../Services/Fetch";
 import "../Register/S_Register.css"
+import IVY3 from "./Images/IVY3.png";
+import IVY_2_1 from "../Register/Images/IVY_2_1.png"
+import IVY_IZQ from "./Images/IVI_IZQ.png"
+
 function Register() {
   const [User_name, setUser_name] = useState("");
   const [User_email, setUser_email] = useState("");
-  const [User_age, setUser_age] = useState(0);
+  const [User_age, setUser_age] = useState();
   const [User_password, setUser_password] = useState("");
-  const [User_ID, setUser_ID] = useState(0);
+  const [User_ID, setUser_ID] = useState();
 
   async function Send(e) {
     e.preventDefault()
@@ -26,18 +30,26 @@ function Register() {
   return (
     <>
       <div className="Principal_Register">
+
+        <img src={IVY3} alt="Decoración" className="header-image" />
+        <img src={IVY_IZQ} alt="Decoración" className="header-image_izq" />
+        
         <h1>Registrate</h1>
         <form action="">
-          <label  htmlFor="">Username:</label>
-          <input className="input-field"  onChange={(e)=>setUser_name(e.target.value)} value={User_name} type="" />
-          <label htmlFor="">Correo:</label>
-          <input className="input-field" value={User_email} onChange={(e)=>setUser_email(e.target.value)} type="email" />
-          <label htmlFor="">Edad:</label>
-          <input className="input-field" value={User_age} onChange={(e)=>setUser_age(e.target.value)} type="number" />
-          <label htmlFor="">Contraseña:</label>
-          <input className="input-field" value={User_password} onChange={(e)=>setUser_password(e.target.value)} type="password" />
-          <label htmlFor="">Identificación:</label>
-          <input className="input-field" value={User_ID} onChange={(e)=>setUser_ID(e.target.value)} type="number" />
+          
+          <input placeholder="Username" className="input-field"  onChange={(e)=>setUser_name(e.target.value)} value={User_name} type=""/>
+          <img src={IVY_2_1} alt="Decoración" className="IMG-HOJA1" />
+          <input placeholder="Email" className="input-field" value={User_email} onChange={(e)=>setUser_email(e.target.value)} type="email"/>
+          <img src={IVY_2_1} alt="Decoración" className="IMG-HOJA2" />
+          <input placeholder="Age" className="input-field" value={User_age} onChange={(e)=>setUser_age(e.target.value)} type="number" />
+          <img src={IVY_2_1} alt="Decoración" className="IMG-HOJA3" />
+          <input placeholder="Identification" className="input-field" value={User_ID} onChange={(e)=>setUser_ID(e.target.value)} type="number"/>
+          <img src={IVY_2_1} alt="Decoración" className="IMG-HOJA4" />
+          <input placeholder="Password" className="input-field" value={User_password} onChange={(e)=>setUser_password(e.target.value)} type="password"/>
+          <img src={IVY_2_1} alt="Decoración" className="IMG-HOJA5" />
+          <p>¿Ya tienes cuenta?</p>
+          
+          
 
           <button className="btn" onClick={Send}>Enviar</button>
        
