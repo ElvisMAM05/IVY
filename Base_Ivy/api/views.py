@@ -35,8 +35,8 @@ class UserAPI(APIView):
         
 class User_validate(APIView):
     def post (self,request):
-        Username = request.data.get("username", "").strip()
-        Password = request.data.get("password", "").strip()
+        Username = request.data.get("username")
+        Password = request.data.get("password") 
 
         
         user= authenticate(username=Username, password=Password)

@@ -1,5 +1,5 @@
 
-import Log_in from '../Log-in/Log_in'
+import Log_in from '../Components/Log_in';
 
 function Page_Log() {
   return (

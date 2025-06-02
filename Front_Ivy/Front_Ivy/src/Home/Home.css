@@ -5,7 +5,6 @@ box-sizing: border-box;
 
 }
 
-
 .headera{
     height: 100px;
     width: 100% ;
@@ -18,5 +17,52 @@ position: absolute;
 left: 50%;
 transform: translateX(-90%);
 width: 90%;
-max-width: 200px;
+max-width: 120px;
+margin-left: -42%;
 }
+
+@media (max-width: 768px) {
+  .Logo {
+    width: 80%;
+    max-width: 100px;
+    margin-left: -25%;
+  }
+}
+
+.Principal{
+background-color: burlywood;
+width: 100%;
+height: 500px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%; 
+  padding: 10px 15%; 
+  flex-wrap: nowrap; 
+}
+.abc{
+    background: #c2dda8 !important;
+}
+.Texto1 {
+  font-size: 20px; /* Tamaño de fuente ajustable */
+  text-align: center;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px; /* Espaciado controlado */
+    flex-wrap: wrap; /* Permite adaptación en pantallas pequeñas */
+  }
+
+  .Texto1 {
+    font-size: 18px; /* Reduce tamaño de texto en móvil */
+  }
+}
+

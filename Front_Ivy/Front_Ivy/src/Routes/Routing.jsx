@@ -1,6 +1,6 @@
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Page_Register from "../Register/Page_Register"
-import Page_Log from "../Log-in/Page_Log"
+import Page_Log from "../Log-in/pages/Page_Log"
 import Home from "../Home/Home_page"
 function Routing() {
 
