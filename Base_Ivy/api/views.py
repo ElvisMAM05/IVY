@@ -19,6 +19,15 @@ class UserAPI(APIView):
         identificacion= request.data.get("identificacion")
         edad= request.data.get("edad")
 
+        if usuario.objects.filter(username=username).exists():
+            return Response({"error":"El nombre de usuario ya existe"},status=status.HTTP_400_BAD_REQUEST)
+        if User.objects.filter(email=correo).exists():
+            return Response({"error":"El correo ya está registrado"},status=status.HTTP_400_BAD_REQUEST)
+        if len(password) < 8:
+            return Response({"error":"La contraseña debe tener al menos 8 caracteres"},status=status.HTTP_400_BAD_REQUEST)
+        if not identificacion.isdigit() or len(identificacion) != 9:
+            return Response({"error":"La identificación debe ser un número de 9 dígitos"},status=status.HTTP_400_BAD_REQUEST)
+
         usuario = User.objects.create_user(
             username=username,
             password=password,
@@ -31,7 +40,7 @@ class UserAPI(APIView):
             edad = edad 
         )
         
-        return Response({"exito":"Usuario creado"},status=201)
+        return Response({"exito":"Usuario creado"},status=status.H)
         
 class User_validate(APIView):
     def post (self,request):

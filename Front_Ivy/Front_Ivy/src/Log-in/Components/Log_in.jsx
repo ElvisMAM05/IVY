@@ -16,7 +16,7 @@ function Log_in() {
        const peticion = await Fetch.postData(objUsuario,"api/Log-in/")
   
     console.log(peticion);
-    if (peticion.status === 201) {
+    if (peticion.status === 200) {
       alert("Login successful!");
       // Aquí puedes redirigir al usuario a otra página o realizar otras acciones
     } else {
@@ -40,9 +40,9 @@ function Log_in() {
       <form action="">
        
         <input type="" onChange={(e)=>setUsername(e.target.value)}  value={Username} placeholder="Username" className="input-field"/>
-        <img src={IVY_2_1} alt="Decoración" className="IMG-HOJA1" />
+       
         <input type="password" onChange={(e)=>setPassword(e.target.value)} value={Password} placeholder="Password" className="input-field"/>
-         <img src={IVY_2_1} alt="Decoración" className="IMG-HOJA2" />
+        
         <p>¿Olvidaste la contraseña?</p>
         <button onClick={Send} className="btn">Ingresar</button>
 
