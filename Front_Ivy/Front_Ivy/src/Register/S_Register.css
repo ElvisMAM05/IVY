@@ -2,7 +2,7 @@
     background-color: #fff; /* Fondo blanco */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sutil sombra para el efecto limpio */
+    box-shadow: 0 0 15px rgb(31, 180, 14); /* Sutil sombra para el efecto limpio */
     width: 90%;
     max-width: 400px;
     margin: 0 auto;

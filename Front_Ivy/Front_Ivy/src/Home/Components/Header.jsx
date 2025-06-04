@@ -1,6 +1,5 @@
-import "./Home.css"
-import Logo from "../Logo/Logo.png"
-import NavBar_C from "../Multi_Components/NavBar_C"
+import "../Styles/Home.css"
+import Logo from "../../Logo/Logo.png"
 function Header() {
   return (
     <header className="headera">

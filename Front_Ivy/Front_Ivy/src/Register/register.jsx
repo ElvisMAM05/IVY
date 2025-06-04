@@ -4,14 +4,15 @@ import "../Register/S_Register.css"
 import IVY3 from "./Images/IVY3.png";
 import IVY_2_1 from "../Register/Images/IVY_2_1.png"
 import IVY_IZQ from "./Images/IVI_IZQ.png"
+import Swal from 'sweetalert2';
 
 
 function Register() {
   const [User_name, setUser_name] = useState("");
   const [User_email, setUser_email] = useState("");
-  const [User_age, setUser_age] = useState();
+  const [User_age, setUser_age] = useState("");
   const [User_password, setUser_password] = useState("");
-  const [User_ID, setUser_ID] = useState();
+  const [User_ID, setUser_ID] = useState("");
 
   async function Send(e) {
     e.preventDefault()
@@ -26,13 +27,24 @@ function Register() {
 
     console.log(peticion);
     if (peticion.exito) {
-      alert("Registro exitoso!");
-      // Aquí puedes redirigir al usuario a otra página o realizar otras acciones
+      Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Registro exitoso",
+  text: "¡Bienvenido a IVY!",
+  showConfirmButton: false,
+  timer: 1500
+});
     } else {
       alert("Error en el registro. Por favor, verifica tus datos.");
     }
-    
+
+    if  (User_name === "" || User_email === "" || User_age === "" || User_password === "" || User_ID === "") {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
   }
+
 
   return (
     <>

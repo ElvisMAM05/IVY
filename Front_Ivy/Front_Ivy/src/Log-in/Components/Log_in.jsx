@@ -3,6 +3,9 @@ import "../../Log-in/styles/S_Log_in.css"
 import IVY_2_1 from "../../Log-in/Images/IVY_2_1.png"
 import Logo from "../../Logo/Logo.png"
 import { useState } from 'react'
+import Swal from 'sweetalert2';
+import{Link} from 'react-router-dom'
+import React from 'react'
 function Log_in() {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
@@ -10,19 +13,37 @@ function Log_in() {
   async function Send(e) {
     e.preventDefault();
     const objUsuario = {
-        "username": Username,
-        "password": Password
+          "username": Username,
+          "password": Password
     }
        const peticion = await Fetch.postData(objUsuario,"api/Log-in/")
   
     console.log(peticion);
-    if (peticion.status === 200) {
-      alert("Login successful!");
+    if (peticion.exito) {
+Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Inicio de sesión exitoso",
+  text: "¡Bienvenido de nuevo!",
+  showConfirmButton: false,
+  timer: 1500
+}).then(() => {
+  // Aquí puedes redirigir al usuario a otra página o realizar otras acciones
+  window.location.href = "/"; // Redirige a la página de inicio
+});
       // Aquí puedes redirigir al usuario a otra página o realizar otras acciones
-    } else {
-      alert("Login failed. Please check your credentials.");
+    } else if (peticion.Error) {
+    alert(peticion.Error);
     }
-   
+    else{
+      alert(
+        "Error en el servidor"
+      )
+    }
+   if (Username === "" || Password === "") {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
   }
  
   

@@ -1,5 +1,5 @@
-import "../Home/Home"
-import Home from "../Home/Home"
+
+import Home from "../Components/Home"
 
 
 function Home_page() {

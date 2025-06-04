@@ -19,12 +19,15 @@ class UserAPI(APIView):
         identificacion= request.data.get("identificacion")
         edad= request.data.get("edad")
 
-        if usuario.objects.filter(username=username).exists():
+        if User.objects.filter(username=username).exists():
             return Response({"error":"El nombre de usuario ya existe"},status=status.HTTP_400_BAD_REQUEST)
+        
         if User.objects.filter(email=correo).exists():
             return Response({"error":"El correo ya está registrado"},status=status.HTTP_400_BAD_REQUEST)
+        
         if len(password) < 8:
             return Response({"error":"La contraseña debe tener al menos 8 caracteres"},status=status.HTTP_400_BAD_REQUEST)
+        
         if not identificacion.isdigit() or len(identificacion) != 9:
             return Response({"error":"La identificación debe ser un número de 9 dígitos"},status=status.HTTP_400_BAD_REQUEST)
 
@@ -40,39 +43,39 @@ class UserAPI(APIView):
             edad = edad 
         )
         
-        return Response({"exito":"Usuario creado"},status=status.H)
+        return Response({"exito":"Usuario creado"},status=status.HTTP_201_CREATED)  
         
 class User_validate(APIView):
     def post (self,request):
         Username = request.data.get("username")
         Password = request.data.get("password") 
-
         
         user= authenticate(username=Username, password=Password)
         
         if user is not None:
             return Response({"exito":"Usuario encontrado"},status=201)
-        
+            
         else: 
             return Response({"Error":"Usuario no existente"},status=404)
 
+class trabajo_api(APIView):
+    def get(self,request):
+        trabajos = Servicios_Trabajador.objects.all()
+        serializer = ServiciosTrabajadorSerializer(trabajos, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+from rest_framework.permissions import IsAuthenticated
 
+class UsuarioListCreate(ListCreateAPIView):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+    permission_classes = [IsAuthenticated]
+    
 class CategoriaListCreate(ListCreateAPIView):
     queryset = Categoría.objects.all()
     serializer_class = CategoriaSerializer
+    permission_classes = [IsAuthenticated]
 
-class ServiciosListCreate(ListCreateAPIView):
-    queryset = Servicios.objects.all()  
-    serializer_class = ServiciosSerializer
 
-class ServiciosCategoriasListCreate(ListCreateAPIView):
-    queryset = Servicios_Categorías.objects.all() 
-    serializer_class = ServiciosCategoriasSerializer  
-    
-class Servicios_Trabajador_ListCreate(ListCreateAPIView):
-    queryset= Servicios_Trabajador.objects.all()
-    serializer_class=ServiciosTrabajadorSerializer
-    
 #Vistas de detalle y eliminación
 
 
