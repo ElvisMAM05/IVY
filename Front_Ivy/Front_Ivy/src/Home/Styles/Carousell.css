@@ -9,10 +9,12 @@
 
 @media (max-width: 768px) {
     .Carousel1 {
+
         height: 200px; /* Ajusta la altura para pantallas pequeñas */
         top: 0; /* Elimina el margen superior */
     }
     .Carousel1 img {
+      
         width: 100%; /* Asegura que la imagen ocupe todo el ancho */
         height: auto; /* Mantiene la proporción de la imagen */
     }

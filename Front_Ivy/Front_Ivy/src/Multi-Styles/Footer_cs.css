@@ -1,0 +1,23 @@
+.Footer {
+  background: linear-gradient(135deg, #0a3d2f, #21a179); /* Fondo verde IVY */
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.Footer_Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Footer_Text {
+  margin: 5px 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}

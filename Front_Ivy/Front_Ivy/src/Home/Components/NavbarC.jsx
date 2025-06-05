@@ -18,7 +18,7 @@ function NavbarC() {
             <NavDropdown  title="Inicia sesión/Registrate" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Registrate</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Inicia sesión</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Sercio al cliente</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Servicio al cliente</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link
