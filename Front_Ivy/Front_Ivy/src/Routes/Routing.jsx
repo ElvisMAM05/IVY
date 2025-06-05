@@ -3,6 +3,7 @@ import Page_Register from "../Register/Page_Register"
 import Page_Log from "../Log-in/pages/Page_Log"
 import Home from "../Home/Pages/Home_page"
 import User_Page from "../User/Pages/User_Page"
+import Admin_Pages from "../Admi/Pages/Admin_Pages"
 
 function Routing() {
 
@@ -14,6 +15,9 @@ function Routing() {
             <Route path='/Log' element={<Page_Log/>}/>
             <Route path='/Register' element={<Page_Register/>}/>
             <Route path='/User' element={<User_Page />}/>
+            <Route path='/Admin' element={<Admin_Pages/>}/>
+            <Route path='*' element={<h1>404 Not Found</h1>}/>
+          
 
         </Routes>
 

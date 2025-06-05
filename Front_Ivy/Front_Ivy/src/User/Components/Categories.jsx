@@ -1,5 +1,12 @@
 import React from 'react'
 import "../Styles/Categories_cs.css"
+import { Link } from 'react-router-dom'
+import Salud from "../Images/Salud.webp"
+import Educacion from "../Images/Educacion.jpg"
+import Construccion from "../Images/Construcción.jpeg"
+import Finanzas from "../Images/Finanzas.jpg"
+
+
 function Categories() {
   return (
      <div className="Categories_Page">
@@ -11,22 +18,22 @@ function Categories() {
 
     <div className="Categories_List">
       <div className="Category_Card">
-        <img src="URL_IMAGEN_CATEGORIA_1" alt="Categoría 1" />
+        <img src={Salud} alt="Categoría 1" />
         <h2>Salud y Bienestar</h2>
       </div>
 
       <div className="Category_Card">
-        <img src="" alt="Categoría 2" />
+        <img src={Educacion} alt="Categoría 2" />
         <h2>Educación y Aprendizaje</h2>
       </div>
 
       <div className="Category_Card">
-        <img src="URL_IMAGEN_CATEGORIA_3" alt="Categoría 3" />
+        <img src={Construccion} alt="Categoría 3" />
         <h2>Reparaciones y Hogar</h2>
       </div>
 
       <div className="Category_Card">
-        <img src="URL_IMAGEN_CATEGORIA_4" alt="Categoría 4" />
+        <img src={Finanzas} alt="Categoría 4" />
         <h2>Negocios y Finanzas</h2>
       </div>
     </div>

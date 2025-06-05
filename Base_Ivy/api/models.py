@@ -12,10 +12,14 @@ class Servicios(models.Model):
     
 class Categoría(models.Model):
     nombre_c=models.TextField()
+    
+    def __str__(self):
+        return self.nombre_c
 
 class Servicios_Categorías(models.Model):
     Categoría=models.ForeignKey(Categoría,on_delete=models.CASCADE)
     Servicios=models.ForeignKey(Servicios,on_delete=models.CASCADE)
+    
     
 class Servicios_Trabajador(models.Model):
     Servicios=models.ForeignKey(Servicios,on_delete=models.CASCADE)

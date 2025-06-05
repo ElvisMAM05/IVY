@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
-
+from rest_framework_simplejwt.tokens import RefreshToken,AccessToken
 # Vistas de creación y listado
 
 
@@ -51,10 +51,9 @@ class User_validate(APIView):
         Password = request.data.get("password") 
         
         user= authenticate(username=Username, password=Password)
-        
         if user is not None:
-            return Response({"exito":"Usuario encontrado"},status=201)
-            
+            token = AccessToken.for_user(user)
+            return Response({"exito":"Usuario encontrado","token":str(token)},status=201)
         else: 
             return Response({"Error":"Usuario no existente"},status=404)
 
@@ -73,7 +72,13 @@ class UsuarioListCreate(ListCreateAPIView):
 class CategoriaListCreate(ListCreateAPIView):
     queryset = Categoría.objects.all()
     serializer_class = CategoriaSerializer
-    permission_classes = [IsAuthenticated]
+    
+    
+class ServiciosListCreate(ListCreateAPIView):
+    queryset = Servicios.objects.all()
+    serializer_class = ServiciosSerializer
+    
+    
 
 
 #Vistas de detalle y eliminación
