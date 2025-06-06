@@ -3,23 +3,9 @@ import '../Styles/Admin_cs.css';
 
 function Admin() {
 
-    const [categorias, setCategorias] = useState(["Salud", "Educación", "Negocios"]);
-  const [usuarios, setUsuarios] = useState([
-    { id: 1, nombre: "Usuario 1", tipo: "Cliente" },
-    { id: 2, nombre: "Usuario 2", tipo: "Profesional" }
-  ]);
+    const [categorias, setCategorias] = useState("");
+    const [usuarios, setUsuarios] = useState("");
   
-  const agregarCategoria = () => {
-    const nuevaCategoria = prompt("Ingresa nueva categoría:");
-    if (nuevaCategoria) {
-      setCategorias([...categorias, nuevaCategoria]);
-    }
-  };
-
-  const eliminarUsuario = (id) => {
-    setUsuarios(usuarios.filter(usuario => usuario.id !== id));
-  };
-
 
   return (
     <div className='Admin_Pages'>
