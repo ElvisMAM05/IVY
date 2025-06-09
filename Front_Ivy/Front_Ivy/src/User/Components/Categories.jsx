@@ -1,17 +1,17 @@
 import React, { useState,useEffect } from 'react'
 import "../Styles/Categories_cs.css"
 import { Link } from 'react-router-dom'
-import {getData} from '../../Services/Fetch'
+import Fetch from "../../Services/Fetch"; 
 
 
 function Categories() {
 
 const [Categorias,setCategorias]=useState([])
 
-async function obtenerCategorias() {
-  const response = await getData("api/Categories/");
-  setCategorias(response);
-}
+ async function obtenerCategorias() {
+    const response = await Fetch.getData("api/Categories/");
+          setCategorias(response);
+  }
 useEffect(() => {
   obtenerCategorias();  
 }
@@ -40,10 +40,3 @@ useEffect(() => {
 }
 
 export default Categories
-{/* <div className="Category_Card">
-  {Categorias.map((categoria) => (
-      <div className="Category_Item">
-        <h2 className="Category_Name">key={categoria.nombre_c}</h2>
-      </div>
-  ))}
-</div> */}
