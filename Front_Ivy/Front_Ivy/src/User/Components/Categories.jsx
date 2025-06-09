@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import "../Styles/Categories_cs.css"
 import { Link } from 'react-router-dom'
-import Salud from "../Images/Salud.webp"
-import Educacion from "../Images/Educacion.jpg"
-import Construccion from "../Images/Construcción.jpeg"
-import Finanzas from "../Images/Finanzas.jpg"
+import {getData} from '../../Services/Fetch'
 
 
 function Categories() {
+
+const [Categorias,setCategorias]=useState([])
+
+async function obtenerCategorias() {
+  const response = await getData("api/Categories/");
+  setCategorias(response);
+}
+useEffect(() => {
+  obtenerCategorias();  
+}
+, []);
+
+  
   return (
      <div className="Categories_Page">
   <div className="Categories_Container">
@@ -17,25 +27,12 @@ function Categories() {
     </p>
 
     <div className="Categories_List">
-      <div className="Category_Card">
-        <img src={Salud} alt="Categoría 1" />
-        <h2>Salud y Bienestar</h2>
-      </div>
+      {Categorias.map((categoria) => (
+        <div className="Category_Card" key={categoria.id}>
+            <h2 className="Category_Name">{categoria.nombre_c}</h2>
+        </div>
+      ))}
 
-      <div className="Category_Card">
-        <img src={Educacion} alt="Categoría 2" />
-        <h2>Educación y Aprendizaje</h2>
-      </div>
-
-      <div className="Category_Card">
-        <img src={Construccion} alt="Categoría 3" />
-        <h2>Reparaciones y Hogar</h2>
-      </div>
-
-      <div className="Category_Card">
-        <img src={Finanzas} alt="Categoría 4" />
-        <h2>Negocios y Finanzas</h2>
-      </div>
     </div>
   </div>
 </div>
@@ -43,3 +40,10 @@ function Categories() {
 }
 
 export default Categories
+{/* <div className="Category_Card">
+  {Categorias.map((categoria) => (
+      <div className="Category_Item">
+        <h2 className="Category_Name">key={categoria.nombre_c}</h2>
+      </div>
+  ))}
+</div> */}

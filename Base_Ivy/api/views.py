@@ -67,7 +67,7 @@ from rest_framework.permissions import IsAuthenticated
 class UsuarioListCreate(ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
-    permission_classes = [IsAuthenticated]
+    
     
 class CategoriaListCreate(ListCreateAPIView):
     queryset = Categoría.objects.all()

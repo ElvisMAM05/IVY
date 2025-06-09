@@ -28,10 +28,8 @@ Swal.fire({
   showConfirmButton: false,
   timer: 1500
 }).then(() => {
-  // Aquí puedes redirigir al usuario a otra página o realizar otras acciones
-  window.location.href = "/"; // Redirige a la página de inicio
+  window.location.href = "/"; 
 });
-      // Aquí puedes redirigir al usuario a otra página o realizar otras acciones
     } else if (peticion.Error) {
     alert(peticion.Error);
     }

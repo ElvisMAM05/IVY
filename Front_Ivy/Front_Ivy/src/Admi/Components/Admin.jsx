@@ -1,44 +1,76 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../Styles/Admin_cs.css'; 
+import Fetch from "../../Services/Fetch"; 
+import Swal from 'sweetalert2';
+import Add_Categories from './Add_Categories'; // Importa el componente de agregar categorías
 
 function Admin() {
+    const [categorias, setCategorias] = useState([]);
+    const [usuarios, setUsuarios] = useState([]);
+    const [mostrarUsuarios, setMostrarUsuarios] = useState(false);
+    const [cargando, setCargando] = useState(false);
 
-    const [categorias, setCategorias] = useState("");
-    const [usuarios, setUsuarios] = useState("");
-  
+    useEffect(() => { 
+        obtenerCategorias();
+    }, []);
 
-  return (
-    <div className='Admin_Pages'>
-    <h1 className="Admin_Title">Panel de Administración</h1>
-    <div className="Admin_Categorias">
-        <h2>Categorías</h2>
-        <ul>
-          {categorias.map((categoria, index) => (
-            <li key={index}>{categoria}</li>
-          ))}
-        </ul>
-        <button onClick={agregarCategoria}>Agregar Categoría</button>
-      </div>
-       <div className="Admin_Usuarios">
-        <h2>Usuarios</h2>
-        <ul>
-          {usuarios.map((usuario) => (
-            <li key={usuario.id}>
-              {usuario.nombre} - {usuario.tipo}
-              <button onClick={() => eliminarUsuario(usuario.id)}>Eliminar</button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    <div className="Admin_Statistics">
-        <h2>Estadísticas</h2>
-        <p>Total de categorías: {categorias.length}</p>
-        <p>Total de usuarios: {usuarios.length}</p>
-    </div>
+    async function obtenerCategorias() {
+        const response = await Fetch.getData("api/Categories/");
+        setCategorias(response);
+    }
 
-       
-    </div>
-  )
+    async function Esconder_Usuarios() {
+        if(!mostrarUsuarios) {
+            setCargando(true);
+            const response = await Fetch.getData("api/Usuarios/");
+            setUsuarios(response);
+            setCargando(false);
+        }
+        setMostrarUsuarios(!mostrarUsuarios);
+    }
+
+    return (
+        <div className="admin-container">
+            <div className="admin-buttons">
+                <button onClick={Esconder_Usuarios} className="admin-button"disabled={cargando} >
+                    {cargando ? 'Cargando...' : 
+                    mostrarUsuarios ? 'Ocultar Usuarios' : 'Mostrar Usuarios'}
+                </button>
+            </div>
+
+            {mostrarUsuarios && (
+                <div className='admin-data'>
+                    <h2>Usuarios</h2>
+                    {usuarios.length > 0 ? (
+                        usuarios.map((usuario) => (
+                            <div key={usuario.id}>{usuario.username}</div>
+                        ))
+                    ) : (
+                        <p>No hay usuarios disponibles</p>
+                    )}
+                </div>
+            )}
+                <br />
+
+            <div className="admin-data">
+                <h2>Categorías</h2>
+                {categorias.length > 0 ? (
+                    <div>
+                        {categorias.map((categoria) => (
+                            <div className='Letters' key={categoria.id}>{categoria.nombre_c}</div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>No hay categorías disponibles.</p>
+                )}
+                <Add_Categories />
+            </div>
+
+        
+            
+           
+        </div>
+    )
 }
 
-export default Admin
+export default Admin;
