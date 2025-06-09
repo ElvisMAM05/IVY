@@ -12,8 +12,8 @@ class Servicios(models.Model):
     
 class Categoría(models.Model):
     nombre_c=models.TextField()
-    imagen_c=models.TextField( )
-    descripcion_c=models.TextField(null=True, blank=True)
+    imagen_c = models.CharField(max_length=255, default="", blank=True, null=True)
+    descripcion_c = models.CharField(max_length=255, default="Sin descripción")
     
     def __str__(self):
         return self.nombre_c
