@@ -31,6 +31,7 @@ useEffect(() => {
       {Categorias.map((categoria) => (
         <div className="Category_Card" key={categoria.id}>
             <h2 className="Category_Name">{categoria.nombre_c}</h2>
+            <img src={categoria.imagen_c} alt={categoria.nombre_c} className="Category_Image" />
         </div>
       ))}
 

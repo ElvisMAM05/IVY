@@ -5,7 +5,7 @@ import "../../src/Admi/Styles/add_cat_cs.css";
 
 function IMGS() { 
 
-    const preset_name='Categorías';
+    const preset_name='Categoria';
     const cloud_name='e5l5v5i5s'
 
   const [image,setImage]=useState('');
@@ -14,17 +14,21 @@ function IMGS() {
 
   const uploadImage = async (e) => {
     setLoading(true);
-    const file = e.target.files[0];
+    const file = e.target.files;
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('file', file[0]);
     formData.append('upload_preset', preset_name);
 
+    console.log(formData);
+    
     try {
       const response = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
         method: 'POST',
         body: formData,
       });
       const data = await response.json();
+      console.log(data);
+      
       setImage(data.secure_url);
       setLoading(false);
     } catch (error) {
