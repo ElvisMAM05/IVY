@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import "../Styles/Categories_cs.css"
 import { Link } from 'react-router-dom'
 import Fetch from "../../Services/Fetch"; 
-import IMGS from '../../Multi_Components/IMGS';
+
 
 
 function Categories() {
@@ -31,9 +31,6 @@ useEffect(() => {
       {Categorias.map((categoria) => (
         <div className="Category_Card" key={categoria.id}>
             <h2 className="Category_Name">{categoria.nombre_c}</h2>
-            {categoria.imagen_c && (
-              <IMGS className="Category_Image" />
-            )}
         </div>
       ))}
 

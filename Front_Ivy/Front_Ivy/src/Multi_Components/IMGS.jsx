@@ -1,20 +1,59 @@
 import React from 'react'
-import { Cloudinary } from '@cloudinary/url-gen';
-import { auto } from '@cloudinary/url-gen/actions/resize';
-import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
-import { AdvancedImage } from '@cloudinary/react';
+import { useState } from 'react'
+import "../../src/Admi/Styles/add_cat_cs.css";
 
-const IMGS = () => {
-  const cld = new Cloudinary({ cloud: { cloudName: 'dz7n9mmvo' } });
+
+function IMGS() { 
+
+    const preset_name='Categorías';
+    const cloud_name='e5l5v5i5s'
+
+  const [image,setImage]=useState('');
+  const [loading,setLoading]=useState(false);
+  localStorage.setItem('cloud_name', cloud_name);
+
+  const uploadImage = async (e) => {
+    setLoading(true);
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', preset_name);
+
+    try {
+      const response = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await response.json();
+      setImage(data.secure_url);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      setLoading(false);
+    }
+  };
+
+
+  return (
+
+    <>
+      {/* <div className='Category_Card'>
+      <h1>Sube una imagen</h1>
+      <input type="file" onChange={uploadImage} />
+      {loading && <p>Loading...</p>}
+      {image && <img src={image}  style={{ width: '200px', height: '200px' }} />}
+    </div> */}
+
+        <div className='Category_Card'>
+      <input type="file" onChange={uploadImage} />
+      {loading && <p>Loading...</p>}
+      {image && <img src={image} style={{ width: '200px', height: '200px' }} />}
+    </div>
   
-  // Use this sample image or upload your own via the Media Explorer
-  const img = cld
-        .image('cld-sample-5')
-        .format('auto') // Optimize delivery by resizing and applying auto-format and auto-quality
-        .quality('auto')
-        .resize(auto().gravity(autoGravity()).width(500).height(500)); // Transform the image: auto-crop to square aspect_ratio
+    </>
 
-  return (<AdvancedImage cldImg={img}/>);
-};
+
+  )
+}
 
 export default IMGS

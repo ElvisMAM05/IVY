@@ -4,6 +4,7 @@ import Fetch from "../../Services/Fetch";
 import { useState } from 'react';
 import { Button, Modal, Box, Typography } from '@mui/material';
 import Swal from 'sweetalert2';
+import IMGS from '../../Multi_Components/IMGS';
 
 function Add_Categories() {
     const style = {
@@ -75,8 +76,16 @@ function Add_Categories() {
                         <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                             Agrega una nueva categoría para organizar tus servicios.
                         </Typography>
+
+                        <IMGS />
                     </Box>
+                   
                 </Modal>
+                
+            </div>
+            <div className='container_Add_images'>
+
+
             </div>
         </>
     )
