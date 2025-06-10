@@ -1,63 +1,79 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react';
 import "../../src/Admi/Styles/add_cat_cs.css";
 
+function IMGS({ onUploadComplete }) {
+    const preset_name = 'Subidas';
+    const cloud_name = 'e5l5v5i5s';
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-function IMGS() { 
+    const uploadImage = async (e) => {
+        const file = e.target.files[0];
+        
+        if (!file) {
+            setError('No se seleccionó ningún archivo');
+            return;
+        }
 
-    const preset_name='Categoria';
-    const cloud_name='e5l5v5i5s'
+        setLoading(true);
+        setError(null);
 
-  const [image,setImage]=useState('');
-  const [loading,setLoading]=useState(false);
-  localStorage.setItem('cloud_name', cloud_name);
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', preset_name);
 
-  const uploadImage = async (e) => {
-    setLoading(true);
-    const file = e.target.files;
-    const formData = new FormData();
-    formData.append('file', file[0]);
-    formData.append('upload_preset', preset_name);
+        try {
+            const response = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
+                method: 'POST',
+                body: formData,
+            });
+            
+            if (!response.ok) {
+                throw new Error('Error al subir la imagen');
+            }
 
-    console.log(formData);
-    
-    try {
-      const response = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
-        method: 'POST',
-        body: formData,
-      });
-      const data = await response.json();
-      console.log(data);
-      
-      setImage(data.secure_url);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-      setLoading(false);
-    }
-  };
+            const data = await response.json();
+            
+            if (!data.secure_url) {
+                throw new Error('No se recibió URL de la imagen');
+            }
 
+            onUploadComplete(data.secure_url);
+            
+        } catch (error) {
+            console.error('Error uploading image:', error);
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
-  return (
-
-    <>
-      {/* <div className='Category_Card'>
-      <h1>Sube una imagen</h1>
-      <input type="file" onChange={uploadImage} />
-      {loading && <p>Loading...</p>}
-      {image && <img src={image}  style={{ width: '200px', height: '200px' }} />}
-    </div> */}
-
-        <div className='Category_Card'>
-      <input type="file" onChange={uploadImage} />
-      {loading && <p>Loading...</p>}
-      {image && <img src={image} style={{ width: '200px', height: '200px' }} />}
-    </div>
-  
-    </>
-
-
-  )
+    return (
+        <div className='image-upload-container'>
+            <div className={`file-input-wrapper ${loading ? 'disabled' : ''}`}>
+                <label className="file-input-label">
+                    <span className="file-input-button">Seleccionar imagen</span>
+                    <input 
+                        className="file-input"
+                        type="file" 
+                        onChange={uploadImage} 
+                        accept="image/*"
+                        disabled={loading}
+                    />
+                </label>
+            </div>
+            
+            <div className="upload-feedback">
+                {loading && (
+                    <div className="loading-indicator">
+                        <div className="spinner"></div>
+                        <span>Subiendo imagen...</span>
+                    </div>
+                )}
+                {error && <p className="error-message">{error}</p>}
+            </div>
+        </div>
+    );
 }
 
-export default IMGS
+export default IMGS;
