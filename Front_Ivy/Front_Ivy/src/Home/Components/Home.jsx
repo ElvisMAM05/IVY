@@ -1,5 +1,5 @@
 
-import NavbarC from "./NavbarC"
+import NavbarC from "./Navbar_Home"
 import CarouselC from "./CarouselC"
 import "../Styles/Home.css"
 function Home() {
@@ -7,8 +7,6 @@ function Home() {
     <>
     <div className="Principal">
       <div className="Navbar">
-
-      <NavbarC/>   
       </div>
     </div>
       <CarouselC/>

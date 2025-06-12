@@ -2,13 +2,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import '../Styles/Navbar_CS.css';
+import '../Styles/Navbar_Home.css';
 import Logo from "../../Logo/Logo.png"
 function NavbarC() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary abc">
+    <Navbar expand="lg" className="bg-body-tertiary abcd">
       <Container className='Navbar'>
-         <Navbar.Brand><img className='Logo' src={Logo} alt="" /></Navbar.Brand>
+         <Navbar.Brand><img className='Logos' src={Logo} alt="" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -24,7 +24,7 @@ function NavbarC() {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-          </Nav>
+          </Nav>  
         </Navbar.Collapse>
       </Container>
     </Navbar>

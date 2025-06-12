@@ -1,13 +1,14 @@
 import React from 'react'
-import NavbarC from './NavBar_C'
+import NavbarC from './NavBar_User'
 import '../Styles/Users_cs.css'
+import Categories from "./Categories"
+import Hero from '../../Multi_Components/Hero'
 
 
 
 function Users() {
   return (
     <> 
-    <NavbarC />
    <main className="Users_Page">
   <div className="Users_Container">
     <div className="User_Header">
@@ -19,8 +20,10 @@ function Users() {
 
     <div className="Users_Cards">
       <div className="User_Card">
+
         <h2>Categorias</h2>
         <p> Mira nuestras diferentes categorias.</p>
+        <Hero/>
       </div>
 
       <div className="User_Card">

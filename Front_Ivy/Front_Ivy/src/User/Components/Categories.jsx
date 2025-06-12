@@ -20,7 +20,7 @@ useEffect(() => {
 
   
   return (
-     <div className="Categories_Page">
+     <div id='Categories' className="Categories_Page">
   <div className="Categories_Container">
     <h1 className="Categories_Title">Explora nuestras categorías</h1>
     <p className="Categories_Description">

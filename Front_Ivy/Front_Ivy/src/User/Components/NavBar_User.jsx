@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from "../../Logo/Logo.png";
 // import UserIcon from "../../Icons/UserIcon.png"; // Icono de usuario
-import '../Styles/NavBar_CS.css';
+import '../Styles/NavBar_User.css';
 
 function NavbarC() {
   return (
