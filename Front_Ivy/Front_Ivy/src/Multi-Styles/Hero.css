@@ -1,0 +1,41 @@
+.cont_hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+
+  padding: 20px;
+  animation: fadeInHero 1s ease-in-out;
+}
+
+.cont_hero p {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  background-color: #2d6845; /* Verde suave */
+  border-radius: 16px;
+  color: #fafafa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.cont_hero p:hover {
+  background-color: #d2eee0;
+  transform: scale(1.07);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Animación de entrada */
+@keyframes fadeInHero {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

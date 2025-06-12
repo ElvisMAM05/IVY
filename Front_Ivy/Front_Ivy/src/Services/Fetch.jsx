@@ -1,3 +1,4 @@
+
 async function postData(obj,endpoint) {
     const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`,{
         method: "POST",

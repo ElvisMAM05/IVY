@@ -1,13 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import "../Multi-Styles/Hero.css"
 
-function Hero() {
+function Hero({rutaPag}) {
 
-    const navigate=useNavigate()
+    const navigate=useNavigate()                      
 
   return (
     <div className='cont_hero'>
-        <p onClick={()=>navigate("/Categories")}>ir</p>
+        <p onClick={rutaPag}>ir</p>
     </div>
   )
 }

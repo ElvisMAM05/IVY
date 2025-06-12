@@ -68,6 +68,14 @@ function Register() {
           <img src={IVY_2_1} alt="Decoración" className="input-icon" />
           <input placeholder="Password" className="input-field" value={User_password} onChange={(e)=>setUser_password(e.target.value)} type="password"/>
           <img src={IVY_2_1} alt="Decoración" className="input-icon" />
+          <br />
+          <select name="" id="">
+          <option value="">Selecciona tu rol</option>
+          <option value="">Trabajador</option>
+          <option value="">Cliente</option>
+          </select>
+          <br />
+          <br />
           <p>¿Ya tienes cuenta?</p>
           
           

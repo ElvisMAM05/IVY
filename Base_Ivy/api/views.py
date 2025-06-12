@@ -4,7 +4,7 @@ from .serializers import (UsuarioSerializer, CategoriaSerializer, ServiciosSeria
 ServiciosTrabajadorSerializer, ServiciosCategoriasSerializer)
 from rest_framework.generics import ListCreateAPIView,  RetrieveUpdateDestroyAPIView
 from rest_framework.views import APIView
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,Permission,Group
 from rest_framework.response import Response
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken,AccessToken
@@ -64,6 +64,28 @@ class trabajo_api(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 from rest_framework.permissions import IsAuthenticated
 
+
+class RolView(APIView):
+    def post(self, request):
+        username = request.data.get("username")  # Recibir usuario
+        grupo_nombre = request.data.get("grupo")  # Recibir grupo a asignar
+
+        try:
+            usuario = User.objects.get(username=username)
+            grupo, creado = Group.objects.get (name=grupo_nombre)
+
+            usuario.groups.add(grupo)  # Asignar grupo al usuario
+
+            return Response({"mensaje": f"El usuario '{username}' ha sido asignado al grupo '{grupo_nombre}'"}, status=status.HTTP_200_OK)
+
+        except User.DoesNotExist:
+            return Response({"error": "Usuario no encontrado"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        except Group.DoesNotExist:
+            return Response({"error": "Este grupo no existe"}, status=status.HTTP_404_NOT_FOUND)
+
+
 class UsuarioListCreate(ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
@@ -77,6 +99,9 @@ class CategoriaListCreate(ListCreateAPIView):
 class ServiciosListCreate(ListCreateAPIView):
     queryset = Servicios.objects.all()
     serializer_class = ServiciosSerializer
+    
+    
+
     
     
 

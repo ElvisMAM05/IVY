@@ -55,3 +55,35 @@ h1 {
 .btn:hover {
     background-color: #bbb;
 }
+
+
+select {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 2px solid #21a179;
+  background: #E3F2E9;
+  color: #0a3d2f;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+select:hover {
+  background: #d2eee0;
+}
+
+select:focus {
+  outline: none;
+  border-color: #176d58;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Opciones dentro del select */
+option {
+  font-size: 1rem;
+  color: #0a3d2f;
+  padding: 10px;
+}

@@ -15,12 +15,12 @@ function NavbarC() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="#link">Servicios</Nav.Link>
+            <Nav.Link href="#link">About us</Nav.Link>
             <Nav.Link href="#help">Ayuda</Nav.Link>
-            <NavDropdown title={<img src="" alt="Usuario" className="User_Icon" />} id="user-nav-dropdown">
-              <NavDropdown.Item href="#profile">Mi Perfil</NavDropdown.Item>
-              <NavDropdown.Item href="#settings">Configuración</NavDropdown.Item>
-              <NavDropdown.Item href="#logout">Cerrar sesión</NavDropdown.Item>
+            <NavDropdown title={<img src="" alt="Otras opciones" className="User_Icon" />} id="user-nav-dropdown">
+              <NavDropdown.Item href="#profile">Inicia sesión</NavDropdown.Item>
+              <NavDropdown.Item href="#Registrate">Registrate</NavDropdown.Item>
+              <NavDropdown.Item href="#logout">Configuración</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

@@ -7,6 +7,8 @@ import NavbarC from '../Components/NavBar_User.jsx'
 function User_Page() {
   return (
     <> 
+    <br />
+    <br />
      <NavbarC />
     <br />
       <Users />
