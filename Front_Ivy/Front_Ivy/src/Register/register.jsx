@@ -13,6 +13,8 @@ function Register() {
   const [User_age, setUser_age] = useState("");
   const [User_password, setUser_password] = useState("");
   const [User_ID, setUser_ID] = useState("");
+  const [Rol,setRol]= useState("");
+
 
   async function Send(e) {
     e.preventDefault()
@@ -25,7 +27,20 @@ function Register() {
     }
     const peticion = await Fetch.postData(objUsuario,"api/usuario/")
 
-    console.log(peticion);
+    const Rol_Usuario={
+      "username:":User_name,
+      "grupo":Rol
+    }
+    const peticion2= await Fetch.postData(Rol_Usuario,"api/Roles/")
+
+      if (peticion2.mensaje) {
+        console.log("Rol asignado correctamente:");
+      } else {
+        console.warn("Error al asignar rol:");
+      } 
+
+    
+    
     if (peticion.exito) {
       Swal.fire({
   position: "top-end",
@@ -39,7 +54,8 @@ function Register() {
       alert("Error en el registro. Por favor, verifica tus datos.");
     }
 
-    if  (User_name === "" || User_email === "" || User_age === "" || User_password === "" || User_ID === "") {
+    if  (User_name === "" || User_email === "" || User_age === "" || User_password === "" || User_ID === ""||Rol === "")
+ {
       alert("Por favor, completa todos los campos.");
       return;
     }
@@ -69,10 +85,10 @@ function Register() {
           <input placeholder="Password" className="input-field" value={User_password} onChange={(e)=>setUser_password(e.target.value)} type="password"/>
           <img src={IVY_2_1} alt="Decoración" className="input-icon" />
           <br />
-          <select name="" id="">
+          <select value={Rol} onChange={(e)=>setRol(e.target.value)} name="" id="">
           <option value="">Selecciona tu rol</option>
-          <option value="">Trabajador</option>
-          <option value="">Cliente</option>
+          <option value="Trabajador">Trabajador</option>
+          <option value="Cliente">Cliente</option>
           </select>
           <br />
           <br />
