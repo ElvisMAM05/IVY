@@ -1,0 +1,53 @@
+.Servicios_Container {
+  padding: 40px;
+  background: linear-gradient(135deg, #0a3d2f, #21a179);
+  color: white;
+  text-align: center;
+}
+
+.Servicios_Title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.Servicios_Description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Diseño flexible para las tarjetas */
+.Servicios_Cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.Servicio_Card {
+  background: white;
+  color: #333;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 280px;
+  transition: 0.3s ease-in-out;
+}
+
+.Servicio_Card:hover {
+  transform: scale(1.05);
+}
+
+/* Botón llamativo */
+.Btn_Solicitar {
+  background: #21a179;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin: 10px;
+
+}

@@ -26,7 +26,7 @@ class ServiciosSerializer(serializers.ModelSerializer):
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categoría
-        fields = '__all__'
+        fields = ["id", "nombre_c", "descripcion_c","imagen_c"]
 
 class ServiciosCategoriasSerializer(serializers.ModelSerializer):
     class Meta:
@@ -43,3 +43,12 @@ class UsuarioListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = ['id', 'usuario', 'identificacion', 'edad']
+        
+class ServiciosDetailSerializer(serializers.ModelSerializer):
+    usuario_trabajador_nombre = serializers.CharField(source="usuario_trabajador.usuario.username", read_only=True)
+    Categoria_Servicio = CategoriaSerializer()
+    class Meta:
+        model = Servicios
+        fields = ['id', 'nombre_servicio', 'descripcion_Servicio',
+                  'descripcion_larga', 'imagen_servicio', 'Categoria_Servicio', 'usuario_trabajador_nombre']
+        

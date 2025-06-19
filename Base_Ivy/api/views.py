@@ -12,7 +12,8 @@ from rest_framework_simplejwt.tokens import AccessToken
 from .models import Usuario, Categoría, Servicios, Servicios_Categorías, Servicios_Trabajador
 from .serializers import (
     UsuarioSerializer, CategoriaSerializer, ServiciosSerializer,
-    ServiciosTrabajadorSerializer, ServiciosCategoriasSerializer
+    ServiciosTrabajadorSerializer, ServiciosCategoriasSerializer,
+    ServiciosDetailSerializer
 )
 
 # ─── ROLES ─────────────────────────────────────────────────────────────────────
@@ -47,7 +48,7 @@ class PermisosVistas(BasePermission):
 
 # ─── REGISTRO DE USUARIOS ─────────────────────────────────────────────────────
 class UserAPI(APIView):
-    permission_classes = [IsAuthenticated, PermisosVistas]
+   # permission_classes = [IsAuthenticated, PermisosVistas]
 
     def post(self, request):
         username = request.data.get("username")
@@ -87,7 +88,7 @@ class User_validate(APIView):
         user = authenticate(username=Username, password=Password)
         if user is not None:
             token = AccessToken.for_user(user)
-            return Response({"exito": "Usuario encontrado", "token": str(token)}, status=201)
+            return Response({"exito": "Usuario encontrado", "token": str(token),"id":user.id},status=201)
         else:
             return Response({"Error": "Usuario no existente"}, status=404)
 
@@ -152,7 +153,7 @@ class CategoriaListCreate(ListCreateAPIView):
     serializer_class = CategoriaSerializer
 
 class ServiciosListCreate(ListCreateAPIView):
-    permission_classes = [IsAuthenticated, PermisosVistas]
+  #permission_classes = [IsAuthenticated, PermisosVistas]
     queryset = Servicios.objects.all()
     serializer_class = ServiciosSerializer
 
@@ -168,7 +169,7 @@ class CategoriaRetrieveDestroy(RetrieveUpdateDestroyAPIView):
     serializer_class = CategoriaSerializer
 
 class ServiciosRetrieveDestroy(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated, PermisosVistas]
+    #permission_classes = [IsAuthenticated, PermisosVistas]
     queryset = Servicios.objects.all()
     serializer_class = ServiciosSerializer
 
@@ -181,3 +182,11 @@ class Servicios_Trabajador_RetrieveDestroy(RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated, PermisosVistas]
     queryset = Servicios_Trabajador.objects.all()
     serializer_class = ServiciosTrabajadorSerializer
+
+
+    
+# ─── VISTAS DE DETALLES ──────────────────────────────────────────
+
+class ServicioDetailView(generics.RetrieveAPIView):
+    queryset = Servicios.objects.all()
+    serializer_class = ServiciosDetailSerializer
