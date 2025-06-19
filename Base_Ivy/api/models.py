@@ -32,6 +32,10 @@ class Servicios_Categorías(models.Model):
 class Servicios_Trabajador(models.Model):
     Servicios=models.ForeignKey(Servicios,on_delete=models.CASCADE)
     Trabajador=models.ForeignKey(Usuario,on_delete=models.CASCADE)
-    
 
-    
+class Comentarios(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    servicio = models.ForeignKey(Servicios, on_delete=models.CASCADE)
+    comentario = models.TextField(max_length=250)
+    fecha = models.DateTimeField(auto_now_add=True)
+

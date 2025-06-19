@@ -120,8 +120,9 @@ function Add_Servicios() {
       </Button>
 
       <Modal
-        open={open}
+        open={open}   
         onClose={handleClose}
+        style={{height: "100vh", overflowY: "auto"}}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

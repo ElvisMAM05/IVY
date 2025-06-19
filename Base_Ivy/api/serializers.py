@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Usuario, Servicios, Categoría, Servicios_Categorías, Servicios_Trabajador
+from .models import Usuario, Servicios, Categoría, Servicios_Categorías, Servicios_Trabajador, Comentarios 
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
@@ -50,5 +50,13 @@ class ServiciosDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Servicios
         fields = ['id', 'nombre_servicio', 'descripcion_Servicio',
-                  'descripcion_larga', 'imagen_servicio', 'Categoria_Servicio', 'usuario_trabajador_nombre']
+                'descripcion_larga', 'imagen_servicio', 'Categoria_Servicio', 'usuario_trabajador_nombre']
         
+class ComentariosSerializer(serializers.ModelSerializer):
+    usuario = UsuarioSerializer(read_only=True)
+    servicio = ServiciosSerializer(read_only=True)
+    
+    class Meta:
+        model = Comentarios
+        fields = ['id', 'usuario', 'servicio', 'comentario', 'fecha']
+        read_only_fields = ['fecha']  # Fecha se establece automáticamente al crear el comentario

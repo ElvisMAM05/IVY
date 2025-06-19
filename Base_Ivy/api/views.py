@@ -9,11 +9,11 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import AccessToken
 
-from .models import Usuario, Categoría, Servicios, Servicios_Categorías, Servicios_Trabajador
+from .models import Usuario, Categoría, Servicios, Servicios_Categorías, Servicios_Trabajador, Comentarios
 from .serializers import (
     UsuarioSerializer, CategoriaSerializer, ServiciosSerializer,
     ServiciosTrabajadorSerializer, ServiciosCategoriasSerializer,
-    ServiciosDetailSerializer
+    ServiciosDetailSerializer, ComentariosSerializer
 )
 
 # ─── ROLES ─────────────────────────────────────────────────────────────────────
@@ -21,7 +21,7 @@ from .serializers import (
 Roles posibles:
 - Trabajador
 - Administrador
-- Cliente
+- Clientep
 """
 
 # ─── PERMISOS PERSONALIZADOS SEGÚN ROL ────────────────────────────────────────
@@ -79,7 +79,7 @@ class UserAPI(APIView):
 
 # ─── AUTENTICACIÓN ─────────────────────────────────────────────────────────────
 class User_validate(APIView):
-    permission_classes = [IsAuthenticated, PermisosVistas]
+   # permission_classes = [IsAuthenticated, PermisosVistas]
 
     def post(self, request):
         Username = request.data.get("username")
@@ -190,3 +190,23 @@ class Servicios_Trabajador_RetrieveDestroy(RetrieveUpdateDestroyAPIView):
 class ServicioDetailView(generics.RetrieveAPIView):
     queryset = Servicios.objects.all()
     serializer_class = ServiciosDetailSerializer
+
+
+# ─── VISTAS DE COMENTARIOS ──────────────────────────────────────────
+
+class ComentariosListCreateAPIView(ListCreateAPIView):
+    #permission_classes = [IsAuthenticated, PermisosVistas]
+    queryset = Comentarios.objects.all()
+    serializer_class = ComentariosSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(usuario=self.request.user.usuario)  # Asigna el usuario autenticado al comentario
+        
+class ComentariosRetrieveDestroyAPIView(RetrieveUpdateDestroyAPIView):
+   # permission_classes = [IsAuthenticated, PermisosVistas]
+    queryset = Comentarios.objects.all()
+    serializer_class = ComentariosSerializer
+
+    def perform_destroy(self, instance):
+        # Aquí puedes agregar lógica adicional antes de eliminar el comentario
+        instance.delete()

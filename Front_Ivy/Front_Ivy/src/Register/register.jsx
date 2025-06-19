@@ -50,6 +50,10 @@ function Register() {
   showConfirmButton: false,
   timer: 1500
 });
+then(() => {
+  window.location.href = "/Log"; // Redirige a la página principal después de 1.5 segundos
+}
+      );
     } else {
       alert("Error en el registro. Por favor, verifica tus datos.");
     }

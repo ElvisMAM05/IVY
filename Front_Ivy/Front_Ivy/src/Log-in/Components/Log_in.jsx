@@ -28,9 +28,11 @@ Swal.fire({
   showConfirmButton: false,
   timer: 1500
 }).then(() => {
-  window.location.href = "/"; 
+  window.location.href = "/"; // Redirige a la página principal después de 1.5 segundos
 });
-    } else if (peticion.Error) {
+localStorage.setItem("token", peticion.token);
+localStorage.setItem("id",peticion.id)   
+} else if (peticion.Error) {
     alert(peticion.Error);
     }
     else{

@@ -1,0 +1,22 @@
+.AboutUs_Container {
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #0a3d2f, #21a179);
+  color: white;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.AboutUs_Container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.AboutUs_Container p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin: 20px auto;
+  max-width: 800px;
+  color: #f0f4f1;
+}
