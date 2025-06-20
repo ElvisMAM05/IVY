@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Fetch from "../../Services/Fetch";
 import "../Styles/Detalles.css"
+import Comentarios from "../Components/Comentarios"
 
 function Details() {
   const { id } = useParams();
@@ -29,8 +30,7 @@ function Details() {
       <p><strong>Categoría:</strong> {servicio.Categoria_Servicio.nombre_c}</p>
       <p><strong>Descripción:</strong> {servicio.descripcion_larga}</p>
 
-      <h3>Comentarios</h3>
-      {/* Aquí podrías agregar un sistema de comentarios dinámicos */}
+     <Comentarios/>
     </div>
   );
 }

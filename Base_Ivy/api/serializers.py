@@ -52,11 +52,11 @@ class ServiciosDetailSerializer(serializers.ModelSerializer):
         fields = ['id', 'nombre_servicio', 'descripcion_Servicio',
                 'descripcion_larga', 'imagen_servicio', 'Categoria_Servicio', 'usuario_trabajador_nombre']
         
+
+
 class ComentariosSerializer(serializers.ModelSerializer):
-    usuario = UsuarioSerializer(read_only=True)
-    servicio = ServiciosSerializer(read_only=True)
-    
+    nombre_usuario = serializers.CharField(source='usuario.username', read_only=True)
+    servicio_nombre = serializers.CharField(source='servicio.nombre_servicio', read_only=True)
     class Meta:
         model = Comentarios
-        fields = ['id', 'usuario', 'servicio', 'comentario', 'fecha']
-        read_only_fields = ['fecha']  # Fecha se establece automáticamente al crear el comentario
+        fields = ['id','comentario', 'fecha', 'servicio', 'usuario', 'nombre_usuario', 'servicio_nombre']   

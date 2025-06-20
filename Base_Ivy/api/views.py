@@ -194,19 +194,11 @@ class ServicioDetailView(generics.RetrieveAPIView):
 
 # ─── VISTAS DE COMENTARIOS ──────────────────────────────────────────
 
-class ComentariosListCreateAPIView(ListCreateAPIView):
-    #permission_classes = [IsAuthenticated, PermisosVistas]
+
+class ComentariosListCreate(ListCreateAPIView):
     queryset = Comentarios.objects.all()
     serializer_class = ComentariosSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(usuario=self.request.user.usuario)  # Asigna el usuario autenticado al comentario
-        
-class ComentariosRetrieveDestroyAPIView(RetrieveUpdateDestroyAPIView):
-   # permission_classes = [IsAuthenticated, PermisosVistas]
+class ComentariosRetrieveDestroy(RetrieveUpdateDestroyAPIView):
     queryset = Comentarios.objects.all()
     serializer_class = ComentariosSerializer
-
-    def perform_destroy(self, instance):
-        # Aquí puedes agregar lógica adicional antes de eliminar el comentario
-        instance.delete()

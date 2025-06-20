@@ -27,18 +27,6 @@ function Register() {
     }
     const peticion = await Fetch.postData(objUsuario,"api/usuario/")
 
-    const Rol_Usuario={
-      "username:":User_name,
-      "grupo":Rol
-    }
-    const peticion2= await Fetch.postData(Rol_Usuario,"api/Roles/")
-
-      if (peticion2.mensaje) {
-        console.log("Rol asignado correctamente:");
-      } else {
-        console.warn("Error al asignar rol:");
-      } 
-
     
     
     if (peticion.exito) {

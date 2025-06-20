@@ -6,6 +6,9 @@ class Usuario(models.Model):
     identificacion = models.CharField(max_length=20)
     edad = models.IntegerField()
     Imagen_U= models.CharField(max_length=255, default="", blank=True, null=True)
+    
+    def __str__(self):
+        return self.usuario.username
 
 class Servicios(models.Model):
     nombre_servicio = models.CharField(max_length=50)
@@ -14,6 +17,9 @@ class Servicios(models.Model):
     descripcion_larga= models.TextField(max_length=250,default="Sin descripción")
     Categoria_Servicio = models.ForeignKey('Categoría', on_delete=models.CASCADE, null=True, blank=True)
     imagen_servicio = models.CharField(max_length=255, default="", blank=True, null=True)
+    
+    def __str__(self):
+        return self.nombre_servicio
     
 class Categoría(models.Model):
     nombre_c=models.TextField()

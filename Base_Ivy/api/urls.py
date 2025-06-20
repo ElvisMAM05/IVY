@@ -2,8 +2,7 @@
 from django.urls import path
 from .views import (UserAPI,User_validate, CategoriaListCreate, CategoriaRetrieveDestroy,
                     ServiciosListCreate,ServiciosRetrieveDestroy,UsuarioListCreate,
-                    UsuarioRetrieveDestroy,RolView, ServicioDetailView,ComentariosListCreateAPIView,
-                     ComentariosRetrieveDestroyAPIView)
+                    UsuarioRetrieveDestroy,RolView, ServicioDetailView,ComentariosListCreate, ComentariosRetrieveDestroy)
 # from rest_framework.authtoken.views import ObtainAuthToken
 urlpatterns = [
     path('usuario/',UserAPI.as_view()), 
@@ -16,6 +15,7 @@ urlpatterns = [
     path('Usuarios/<int:pk>/', UsuarioRetrieveDestroy.as_view()),
     path('Roles/',RolView.as_view()),
     path('Servicios/<int:pk>/', ServicioDetailView.as_view()),
-    path("Comentarios/", ComentariosListCreateAPIView.as_view()),
-    path("Comentarios/<int:pk>/", ComentariosRetrieveDestroyAPIView.as_view()),
+    path('comentarios/', ComentariosListCreate.as_view(), name='comentarios-list-create'),
+    path('comentarios/<int:pk>/', ComentariosRetrieveDestroy.as_view(), name='comentarios-detail'),
+    
 ]   
