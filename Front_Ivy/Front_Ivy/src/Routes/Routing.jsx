@@ -5,6 +5,9 @@ import User_Page from "../User/Pages/User_Page"
 import Admin_Pages from "../Admi/Pages/Admin_Pages"
 import Test_Pages from "../Test/Test_Pages"
 import Details_page from "../Detalles/Pages/Details_page"
+import Comentarios from "../Detalles/Components/Comentarios"
+import Usuario_page from "../Usuario/Pages/Usuario_page"
+import Welcome from "../Usuario/Components/Welcome"
 
 function Routing() {
 
@@ -19,8 +22,10 @@ function Routing() {
             <Route path='/Admin' element={<Admin_Pages/>}/>
             <Route path='*' element={<h1>404 Not Found</h1>}/>
             <Route path='/Test' element={<Test_Pages/>}/>
-            <Route path='/Details/:id' element={<Details_page/>}/>
-            {/* Add more routes as needed */}
+         <Route path="/Details/:servicioId" element={<Details_page />} />
+         <Route path='usuario' element={<Usuario_page/>}/>
+         <Route path='Welcome' element={<Welcome/>}/>
+        {/* Add more routes as needed */}
 
           
 

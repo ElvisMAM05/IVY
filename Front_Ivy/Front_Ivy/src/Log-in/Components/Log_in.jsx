@@ -10,41 +10,42 @@ function Log_in() {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
 
-  async function Send(e) {
-    e.preventDefault();
-    const objUsuario = {
-          "username": Username,
-          "password": Password
-    }
-       const peticion = await Fetch.postData(objUsuario,"api/Log-in/")
-  
-    console.log(peticion);
-    if (peticion.exito) {
-Swal.fire({
-  position: "top-end",
-  icon: "success",
-  title: "Inicio de sesión exitoso",
-  text: "¡Bienvenido de nuevo!",
-  showConfirmButton: false,
-  timer: 1500
-}).then(() => {
-  window.location.href = "/"; // Redirige a la página principal después de 1.5 segundos
-});
-localStorage.setItem("token", peticion.token);
-localStorage.setItem("id",peticion.id)   
-} else if (peticion.Error) {
-    alert(peticion.Error);
-    }
-    else{
-      alert(
-        "Error en el servidor"
-      )
-    }
-   if (Username === "" || Password === "") {
-      alert("Por favor, completa todos los campos.");
-      return;
-    }
+async function Send(e) {
+  e.preventDefault();
+
+  if (Username === "" || Password === "") {
+    alert("Por favor, completa todos los campos.");
+    return;
   }
+
+  const objUsuario = {
+    username: Username,
+    password: Password
+  };
+
+  const peticion = await Fetch.postData(objUsuario, "api/Log-in/");
+  console.log(peticion);
+
+  if (peticion.exito) {
+    localStorage.setItem("token", peticion.token);
+    localStorage.setItem("id", peticion.id);
+
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Inicio de sesión exitoso",
+      text: "¡Bienvenido de nuevo!",
+      showConfirmButton: false,
+      timer: 1500
+    }).then(() => {
+      window.location.href = "/usuario"; // Redirige al usuario a la página de usuario
+    });
+  } else if (peticion.Error) {
+    alert(peticion.Error);
+  } else {
+    alert("Error en el servidor");
+  }
+}
  
   
 

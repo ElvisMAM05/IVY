@@ -5,8 +5,16 @@ import "../Styles/Detalles.css"
 import Comentarios from "../Components/Comentarios"
 
 function Details() {
-  const { id } = useParams();
+  const { servicioId } = useParams();
   const [servicio, setServicio] = useState(null);
+ 
+
+
+
+
+  const id = servicioId; // Asegúrate de que este ID sea el correcto según tu API
+  console.log("Servicio ID:", id); // Verifica que el ID se esté recibiendo correctamente
+
 
   useEffect(() => {
     async function obtenerServicio() {
@@ -30,7 +38,8 @@ function Details() {
       <p><strong>Categoría:</strong> {servicio.Categoria_Servicio.nombre_c}</p>
       <p><strong>Descripción:</strong> {servicio.descripcion_larga}</p>
 
-     <Comentarios/>
+    <Comentarios servicioId={id} />
+
     </div>
   );
 }

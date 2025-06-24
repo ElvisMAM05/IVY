@@ -1,0 +1,49 @@
+.Comentarios_Container {
+  margin-top: 40px;
+  background: #f0f7f5;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.Comentarios_Container h3 {
+  color: #21a179;
+  margin-bottom: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-family: inherit;
+  margin-bottom: 12px;
+}
+
+button {
+  background: #21a179;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #176d58;
+}
+
+.comentario-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.comentario-item .fecha {
+  display: block;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 4px;
+}

@@ -1,0 +1,24 @@
+.seccion-ivy {
+  text-align: center;
+  background: linear-gradient(135deg, #e6f4e7, #ffffff);
+  padding: 3rem 1rem 2rem;
+  border-bottom: 1px solid #d8e6d1;
+}
+
+.seccion-texto {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.seccion-titulo {
+  font-size: 2.5rem;
+  color: #3c805e;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.seccion-subtitulo {
+  font-size: 1.15rem;
+  color: #4a4a4a;
+  line-height: 1.6;
+}

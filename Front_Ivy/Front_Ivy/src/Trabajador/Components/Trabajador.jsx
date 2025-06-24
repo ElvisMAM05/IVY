@@ -30,9 +30,8 @@ function Trabajador() {
             <h2>{Trabajo.nombre_servicio}</h2>
             <p>{Trabajo.descripcion_Servicio}</p>
             <button className="Btn_Solicitar">Solicitar</button>
-         <Link to={`/Details/${Trabajo.id}`} className="ver-mas-btn">
-  Ver Más
-</Link>
+         <Link to={`/Details/${Trabajo.id}`}>Ver más</Link>
+
 
           </div>
         ))}

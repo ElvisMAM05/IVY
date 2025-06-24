@@ -4,6 +4,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, SAFE_METHODS, BasePermission
+from rest_framework.exceptions import PermissionDenied
 
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate
@@ -198,7 +199,20 @@ class ServicioDetailView(generics.RetrieveAPIView):
 class ComentariosListCreate(ListCreateAPIView):
     queryset = Comentarios.objects.all()
     serializer_class = ComentariosSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        servicio_id = self.kwargs.get("servicio_id")
+        return Comentarios.objects.filter(servicio_id=servicio_id)
+
+    def perform_create(self, serializer):
+        servicio_id = self.kwargs.get("servicio_id")
+        serializer.save(usuario=self.request.user, servicio_id=servicio_id) 
+
+
+
 
 class ComentariosRetrieveDestroy(RetrieveUpdateDestroyAPIView):
     queryset = Comentarios.objects.all()
     serializer_class = ComentariosSerializer
+    permission_classes = [IsAuthenticated]

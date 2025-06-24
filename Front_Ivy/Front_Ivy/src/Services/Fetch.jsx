@@ -1,15 +1,19 @@
 
-async function postData(obj,endpoint) {
-    const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`,{
-        method: "POST",
-        headers:{
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(obj)        
-    })
-    const res = await peticion.json()
-    console.log(res);
-    return res
+async function postData(obj, endpoint) {
+  const token = localStorage.getItem("token"); 
+
+  const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...(token && { Authorization: `Bearer ${token}` })
+    },
+    body: JSON.stringify(obj)
+  });
+
+  const res = await peticion.json();
+  console.log(res);
+  return res;
 }
 
 
@@ -50,15 +54,24 @@ async function patchData(info,endpoint,id) {
       }
 }
 
-const getData=async(endpoint) => {
-    try {
-        const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`)
-        const datos = await peticion.json()
-        console.log(datos);
-        return datos
-    } catch (error) {
-        console.error(error);
-    }
-}
+const getData = async (endpoint) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const peticion = await fetch(`http://127.0.0.1:8000/${endpoint}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        ...(token && { Authorization: `Bearer ${token}` })
+      }
+    });
+
+    const datos = await peticion.json();
+    console.log(datos);
+    return datos;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 export default {getData,postData,patchData,deleteData}

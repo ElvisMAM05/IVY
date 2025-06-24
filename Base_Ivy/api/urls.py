@@ -15,7 +15,8 @@ urlpatterns = [
     path('Usuarios/<int:pk>/', UsuarioRetrieveDestroy.as_view()),
     path('Roles/',RolView.as_view()),
     path('Servicios/<int:pk>/', ServicioDetailView.as_view()),
-    path('comentarios/', ComentariosListCreate.as_view(), name='comentarios-list-create'),
-    path('comentarios/<int:pk>/', ComentariosRetrieveDestroy.as_view(), name='comentarios-detail'),
+    path('comentarios/', ComentariosListCreate.as_view()),
+    path('Comentarios/<int:servicio_id>/', ComentariosListCreate.as_view()),
+
     
 ]   
