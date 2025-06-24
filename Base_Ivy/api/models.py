@@ -45,3 +45,11 @@ class Comentarios(models.Model):
     comentario = models.TextField(max_length=250)
     fecha = models.DateTimeField(auto_now_add=True)
 
+class Solicitud(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    servicio = models.ForeignKey(Servicios, on_delete=models.CASCADE)
+    fecha_solicitud = models.DateTimeField(auto_now_add=True)
+    estado = models.CharField(max_length=20, default='Pendiente')  # Ejemplo: Pendiente, Aceptada, Rechazada
+
+    def __str__(self):
+        return f"{self.usuario} - {self.servicio} - {self.estado}"

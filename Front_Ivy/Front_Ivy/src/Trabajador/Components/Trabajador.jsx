@@ -29,7 +29,7 @@ function Trabajador() {
           <div key={Trabajo.id} className="Servicio_Card">
             <h2>{Trabajo.nombre_servicio}</h2>
             <p>{Trabajo.descripcion_Servicio}</p>
-            <button className="Btn_Solicitar">Solicitar</button>
+
          <Link to={`/Details/${Trabajo.id}`}>Ver más</Link>
 
 

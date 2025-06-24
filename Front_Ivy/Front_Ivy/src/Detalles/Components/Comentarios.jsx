@@ -28,7 +28,11 @@ function Comentarios() {
 
     setLoading(true);
 
-    const objcomentario = { usuario:localStorage.getItem("id"),comentario: comentarioTexto };
+    const objcomentario = { 
+      usuario:localStorage.getItem("id"),
+      comentario: comentarioTexto,
+
+    };
     console.log("servicioId para POST:", servicioId);
 
     const respuesta = await Fetch.postData(objcomentario, `api/Comentarios/${servicioId}/`);

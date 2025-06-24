@@ -76,6 +76,28 @@ function Admin() {
                 
             </div>
 
+                    <br />
+             <div className="admin-data">
+                <h2>Servicios</h2>
+                {servicios.length > 0 ? (
+                    <div>
+                        {servicios.map((servicio) => (
+                            <div className='Letters' key={servicio.id}>{servicio.nombre_servicio}</div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>No hay servicios disponibles.</p>
+                )}
+                <Add_Servicios />
+                
+            </div>
+
+            
+
+
+            
+
+        
             
            
         </div>
