@@ -89,7 +89,8 @@ class User_validate(APIView):
         user = authenticate(username=Username, password=Password)
         if user is not None:
             token = AccessToken.for_user(user)
-            return Response({"exito": "Usuario encontrado", "token": str(token),"id":user.id},status=201)
+            usuarioID = Usuario.objects.get(usuario=user.id).id
+            return Response({"exito": "Usuario encontrado", "token": str(token),"id":str(usuarioID)},status=201)
         else:
             return Response({"Error": "Usuario no existente"}, status=404)
 
@@ -199,7 +200,7 @@ class ServicioDetailView(generics.RetrieveAPIView):
 class ComentariosListCreate(ListCreateAPIView):
     queryset = Comentarios.objects.all()
     serializer_class = ComentariosSerializer
-    permission_classes = [IsAuthenticated]
+   # permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         servicio_id = self.kwargs.get("servicio_id")
@@ -207,7 +208,7 @@ class ComentariosListCreate(ListCreateAPIView):
 
     def perform_create(self, serializer):
         servicio_id = self.kwargs.get("servicio_id")
-        serializer.save(usuario=self.request.user, servicio_id=servicio_id) 
+        serializer.save(servicio_id=servicio_id) 
 
 
 

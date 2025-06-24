@@ -57,9 +57,8 @@ class ServiciosDetailSerializer(serializers.ModelSerializer):
 class ComentariosSerializer(serializers.ModelSerializer):
     usuario_nombre = serializers.CharField(source='usuario.username', read_only=True)
     servicio_nombre = serializers.CharField(source='servicio.nombre_servicio', read_only=True)
-
     class Meta:
         model = Comentarios
-        fields = ['id', 'comentario', 'fecha', 'usuario_nombre', 'servicio_nombre']
-        read_only_fields = ['usuario_nombre', 'servicio_nombre', 'fecha']
+        fields = ['id', 'comentario', 'fecha', 'usuario_nombre', 'servicio_nombre',"usuario"]
+        read_only_fields = ['usuario_nombre', 'servicio_nombre']
  

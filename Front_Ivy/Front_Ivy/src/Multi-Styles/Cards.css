@@ -1,0 +1,52 @@
+.cards-contenedor-ivy {
+  background: linear-gradient(135deg, #0a3d2f, #21a179); /* Verde IVY */
+  padding: 3rem 1rem;
+ 
+}
+
+.ivy-card-group {
+  gap: 2rem;
+  justify-content: center;
+}
+
+.ivy-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ivy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(60, 128, 94, 0.2);
+}
+
+.ivy-card .card-title {
+  color: #3c805e;
+  font-weight: bold;
+}
+
+.ivy-card .card-text {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.ivy-card .card-footer {
+  background-color: transparent;
+  border-top: none;
+  font-size: 0.85rem;
+  color: #5a5a5a;
+}
+
+.ivy-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
+  transition: transform 0.3s ease;
+}
+
+.ivy-card:hover img {
+  transform: scale(1.03);
+}

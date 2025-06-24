@@ -3,20 +3,29 @@ import '../Styles/Admin_cs.css';
 import Fetch from "../../Services/Fetch"; 
 import Swal from 'sweetalert2';
 import Add_Categories from './Add_Categories'; // Importa el componente de agregar categorías
+import Add_Servicios from '../Components/add_Servicios.jsx'
 
 function Admin() {
     const [categorias, setCategorias] = useState([]);
     const [usuarios, setUsuarios] = useState([]);
     const [mostrarUsuarios, setMostrarUsuarios] = useState(false);
     const [cargando, setCargando] = useState(false);
+    const [servicios,setServicios]=useState([])
 
     useEffect(() => { 
         obtenerCategorias();
+        ObtenerServicios();
     }, []);
 
     async function obtenerCategorias() {
         const response = await Fetch.getData("api/Categories/");
         setCategorias(response);
+    }
+
+    async function ObtenerServicios() {
+        const response=await Fetch.getData("api/Servicios/")
+        setServicios(response)
+        
     }
 
     async function Esconder_Usuarios() {
@@ -64,9 +73,9 @@ function Admin() {
                     <p>No hay categorías disponibles.</p>
                 )}
                 <Add_Categories />
+                
             </div>
 
-        
             
            
         </div>

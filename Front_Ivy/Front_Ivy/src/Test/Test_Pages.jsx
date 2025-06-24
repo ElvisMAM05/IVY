@@ -5,6 +5,7 @@ import Trabajador from '../Trabajador/Components/Trabajador'
 import Add_Servicios from '../Admi/Components/add_Servicios'
 import AboutUs from '../User/Components/About_US'
 import Comentarios from "../Detalles/Components/Comentarios"
+import  Cards from "../Multi_Components/Cards"
 function Test_Pages() {
   return (
     <div>
@@ -14,6 +15,8 @@ function Test_Pages() {
         <p>Feel free to add more components or functionality here.</p>
 
         <Trabajador />
+        <br />
+        <Cards/>
 
         <Add_Servicios />
         <AboutUs/>

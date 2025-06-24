@@ -4,6 +4,7 @@ import  Footer from "../../Multi_Components/Footer.jsx"
 import Categories from '../Components/Categories.jsx'
 import NavbarC from '../Components/NavBar_User.jsx'
 import AboutUs from '../Components/About_US.jsx'
+import  Cards from "../../Multi_Components/Cards.jsx"
 
 function User_Page() {
   return (
@@ -18,6 +19,8 @@ function User_Page() {
       <br />
       <AboutUs />
       <br />
+       <Cards/>
+       <br />
       
       <Footer />
     

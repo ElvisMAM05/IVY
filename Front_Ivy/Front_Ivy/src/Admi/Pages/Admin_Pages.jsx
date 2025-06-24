@@ -3,6 +3,7 @@ import Admin from '../Components/Admin.jsx'
 import Footer from '../../Multi_Components/Footer.jsx'
 import  Navbar from '../../Multi_Components/NavBar_C.jsx'
 
+
 function Admin_Pages() {
   return (
     <>
@@ -11,6 +12,9 @@ function Admin_Pages() {
     </div>
        <div>
         <Admin />
+    </div>
+    <div>
+    
     </div>
 
     <div>

@@ -28,11 +28,12 @@ function Comentarios() {
 
     setLoading(true);
 
-    const objcomentario = { comentario: comentarioTexto };
+    const objcomentario = { usuario:localStorage.getItem("id"),comentario: comentarioTexto };
     console.log("servicioId para POST:", servicioId);
 
     const respuesta = await Fetch.postData(objcomentario, `api/Comentarios/${servicioId}/`);
-
+    console.log(respuesta);
+    
 
     if (respuesta?.id) {
       setComentarios([...comentarios, respuesta]); // Agrega el nuevo comentario a la lista
