@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Fetch from "../../Services/Fetch";
 import Swal from 'sweetalert2';
 import "../Styles/B_Categories.css";
@@ -8,6 +8,7 @@ function B_Categories() {
 
   useEffect(() => {
     traerCategorias();
+    
   }, []);
 
   async function traerCategorias() {

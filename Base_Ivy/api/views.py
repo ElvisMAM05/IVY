@@ -168,7 +168,7 @@ class ServiciosCategoriasListCreate(ListCreateAPIView):
 
 # ─── VISTAS DE DETALLE Y ELIMINACIÓN ──────────────────────────────────────────
 class UsuarioRetrieveDestroy(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated, PermisosVistas]
+   #     permission_classes = [IsAuthenticated, PermisosVistas]
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
