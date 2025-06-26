@@ -3,9 +3,13 @@ import { useParams } from "react-router-dom";
 import Fetch from "../../Services/Fetch";
 import "../Styles/Detalles.css"
 import Comentarios from "../Components/Comentarios"
+import Solicitar from "../Components/Solicitar";
 
 function Details() {
   const { servicioId } = useParams();
+  const {servicioIds}=useParams();
+  console.log("Servicio ID desde useParams:", servicioId); // Verifica que el ID
+  localStorage.setItem("servicioId", servicioId); // Guarda el ID en localStorage
   const [servicio, setServicio] = useState(null);
  
 
@@ -14,7 +18,7 @@ function Details() {
 
   const id = servicioId; // Asegúrate de que este ID sea el correcto según tu API
   console.log("Servicio ID:", id); // Verifica que el ID se esté recibiendo correctamente
-
+  const idServicio = servicioIds; // Asegúrate de que este ID sea el correcto según tu API
 
   useEffect(() => {
     async function obtenerServicio() {
@@ -38,7 +42,9 @@ function Details() {
       <p><strong>Categoría:</strong> {servicio.Categoria_Servicio.nombre_c}</p>
       <p><strong>Descripción:</strong> {servicio.descripcion_larga}</p>
 
+     <Solicitar servicioIds={idServicio} />
     <Comentarios servicioId={id} />
+     
 
     </div>
   );

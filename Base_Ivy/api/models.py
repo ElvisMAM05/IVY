@@ -50,6 +50,3 @@ class Solicitud(models.Model):
     servicio = models.ForeignKey(Servicios, on_delete=models.CASCADE)
     fecha_solicitud = models.DateTimeField(auto_now_add=True)
     estado = models.CharField(max_length=20, default='Pendiente')  # Ejemplo: Pendiente, Aceptada, Rechazada
-
-    def __str__(self):
-        return f"{self.usuario} - {self.servicio} - {self.estado}"

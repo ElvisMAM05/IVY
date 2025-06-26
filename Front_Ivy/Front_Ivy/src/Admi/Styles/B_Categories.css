@@ -1,0 +1,22 @@
+.Categoria_Item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  padding: 0.4rem 0;
+}
+
+.Categoria_Item button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.Categoria_Item button:hover {
+  background-color: #c9302c;
+}

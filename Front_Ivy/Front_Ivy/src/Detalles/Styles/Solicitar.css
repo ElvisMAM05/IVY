@@ -21,3 +21,19 @@
   background-color: #336e51;
   transform: translateY(-2px);
 }
+
+.btn-solicitado {
+  background-color: #5aaf89;
+  cursor: default;
+}
+
+.btn-solicitado:hover {
+  background-color: #5aaf89;
+  transform: none;
+}
+
+.error-solicitud {
+  color: #b30000;
+  margin-top: 0.75rem;
+  font-weight: 500;
+}

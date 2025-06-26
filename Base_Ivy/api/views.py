@@ -5,16 +5,18 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, SAFE_METHODS, BasePermission
 from rest_framework.exceptions import PermissionDenied
+from rest_framework.generics import ListAPIView
+
 
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import AccessToken
 
-from .models import Usuario, Categoría, Servicios, Servicios_Categorías, Servicios_Trabajador, Comentarios
+from .models import Usuario, Categoría, Servicios, Servicios_Categorías, Servicios_Trabajador, Comentarios, Solicitud
 from .serializers import (
     UsuarioSerializer, CategoriaSerializer, ServiciosSerializer,
     ServiciosTrabajadorSerializer, ServiciosCategoriasSerializer,
-    ServiciosDetailSerializer, ComentariosSerializer
+    ServiciosDetailSerializer, ComentariosSerializer,SolicitudSerializer
 )
 
 # ─── ROLES ─────────────────────────────────────────────────────────────────────
@@ -158,6 +160,11 @@ class ServiciosListCreate(ListCreateAPIView):
   #permission_classes = [IsAuthenticated, PermisosVistas]
     queryset = Servicios.objects.all()
     serializer_class = ServiciosSerializer
+    
+class ServiciosCategoriasListCreate(ListCreateAPIView):
+   # permission_classes = [IsAuthenticated, PermisosVistas]
+    queryset = Servicios_Categorías.objects.all()
+    serializer_class = ServiciosCategoriasSerializer
 
 # ─── VISTAS DE DETALLE Y ELIMINACIÓN ──────────────────────────────────────────
 class UsuarioRetrieveDestroy(RetrieveUpdateDestroyAPIView):
@@ -166,7 +173,7 @@ class UsuarioRetrieveDestroy(RetrieveUpdateDestroyAPIView):
     serializer_class = UsuarioSerializer
 
 class CategoriaRetrieveDestroy(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated, PermisosVistas]
+   #permission_classes = [IsAuthenticated, PermisosVistas]
     queryset = Categoría.objects.all()
     serializer_class = CategoriaSerializer
 
@@ -210,10 +217,33 @@ class ComentariosListCreate(ListCreateAPIView):
         servicio_id = self.kwargs.get("servicio_id")
         serializer.save(servicio_id=servicio_id) 
 
-
-
-
 class ComentariosRetrieveDestroy(RetrieveUpdateDestroyAPIView):
     queryset = Comentarios.objects.all()
     serializer_class = ComentariosSerializer
     permission_classes = [IsAuthenticated]
+
+# ─── VISTAS DE SOLICITUDES ─────────────────────────────────────────
+
+class SolicitudListCreate(ListCreateAPIView):
+    queryset = Solicitud.objects.all()
+    serializer_class = SolicitudSerializer
+    # permission_classes = [IsAuthenticated]  # Descomenta si estás usando autenticación
+
+    def get_queryset(self):
+        usuario_id = self.kwargs.get("usuario_id")
+        if usuario_id:
+            return Solicitud.objects.filter(usuario_id=usuario_id)
+        return Solicitud.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+# ─── VISTAS DE SERVICIOS EN CATEGORÍAS ─────────────────────────────────────────
+
+class ServiciosPorCategoria(ListAPIView):
+    serializer_class = ServiciosSerializer
+
+    def get_queryset(self):
+        categoria_id = self.kwargs.get("id")
+        return Servicios.objects.filter(Categoria_Servicio=categoria_id)

@@ -4,6 +4,7 @@ import Fetch from "../../Services/Fetch";
 import Swal from 'sweetalert2';
 import Add_Categories from './Add_Categories'; // Importa el componente de agregar categorías
 import Add_Servicios from '../Components/add_Servicios.jsx'
+import Add_Usuarios from './Add_Usuarios.jsx';
 
 function Admin() {
     const [categorias, setCategorias] = useState([]);
@@ -11,6 +12,8 @@ function Admin() {
     const [mostrarUsuarios, setMostrarUsuarios] = useState(false);
     const [cargando, setCargando] = useState(false);
     const [servicios,setServicios]=useState([])
+    const [mostrarCategorias, setMostrarCategorias] = useState(false);
+    const [mostrarServicios, setMostrarServicios] = useState(false);
 
     useEffect(() => { 
         obtenerCategorias();
@@ -37,6 +40,17 @@ function Admin() {
         }
         setMostrarUsuarios(!mostrarUsuarios);
     }
+    async function Esconder_Categorias() {
+        if(!mostrarCategorias) {
+            setCargando(true);
+            const response = await Fetch.getData("api/Categories/");
+            setCategorias(response);
+            setCargando(false);
+        }
+        setMostrarCategorias(!mostrarCategorias);
+    }
+
+
 
     return (
         <div className="admin-container">
@@ -45,7 +59,15 @@ function Admin() {
                     {cargando ? 'Cargando...' : 
                     mostrarUsuarios ? 'Ocultar Usuarios' : 'Mostrar Usuarios'}
                 </button>
+                <button onClick={Esconder_Categorias} className="admin-button" disabled={cargando}>
+                    {cargando ? 'Cargando...' :
+                    mostrarCategorias ? 'Ocultar Categorías' : 'Mostrar Categorías'}
+                </button>
+                <button onClick={() => setMostrarServicios(!mostrarServicios)} className="admin-button">
+                    {mostrarServicios ? 'Ocultar Servicios' : 'Mostrar Servicios'}  
+                </button>
             </div>
+
 
             {mostrarUsuarios && (
                 <div className='admin-data'>
@@ -57,10 +79,11 @@ function Admin() {
                     ) : (
                         <p>No hay usuarios disponibles</p>
                     )}
+                        <Add_Usuarios/>
                 </div>
             )}
                 <br />
-
+            {mostrarCategorias &&(
             <div className="admin-data">
                 <h2>Categorías</h2>
                 {categorias.length > 0 ? (
@@ -75,8 +98,10 @@ function Admin() {
                 <Add_Categories />
                 
             </div>
+            )}
 
                     <br />
+                    {mostrarServicios&&(
              <div className="admin-data">
                 <h2>Servicios</h2>
                 {servicios.length > 0 ? (
@@ -91,15 +116,8 @@ function Admin() {
                 <Add_Servicios />
                 
             </div>
-
-            
-
-
-            
-
-        
-            
-           
+    )}
+ 
         </div>
     )
 }

@@ -13,7 +13,7 @@ function Register() {
   const [User_age, setUser_age] = useState("");
   const [User_password, setUser_password] = useState("");
   const [User_ID, setUser_ID] = useState("");
-  const [Rol,setRol]= useState("");
+
 
 
   async function Send(e) {
@@ -46,7 +46,7 @@ then(() => {
       alert("Error en el registro. Por favor, verifica tus datos.");
     }
 
-    if  (User_name === "" || User_email === "" || User_age === "" || User_password === "" || User_ID === ""||Rol === "")
+    if  (User_name === "" || User_email === "" || User_age === "" || User_password === "" || User_ID === "")
  {
       alert("Por favor, completa todos los campos.");
       return;
@@ -77,15 +77,9 @@ then(() => {
           <input placeholder="Password" className="input-field" value={User_password} onChange={(e)=>setUser_password(e.target.value)} type="password"/>
           <img src={IVY_2_1} alt="Decoración" className="input-icon" />
           <br />
-          <select value={Rol} onChange={(e)=>setRol(e.target.value)} name="" id="">
-          <option value="">Selecciona tu rol</option>
-          <option value="Trabajador">Trabajador</option>
-          <option value="Cliente">Cliente</option>
-          </select>
+          <a href="/Log">¿Ya tienes cuenta?</a>
           <br />
-          <br />
-          <p>¿Ya tienes cuenta?</p>
-          
+          <br />  
           
 
           <button className="btn" onClick={Send}>Registrarse</button>

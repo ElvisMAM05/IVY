@@ -33,8 +33,6 @@ function Comentarios() {
       comentario: comentarioTexto,
 
     };
-    console.log("servicioId para POST:", servicioId);
-
     const respuesta = await Fetch.postData(objcomentario, `api/Comentarios/${servicioId}/`);
     console.log(respuesta);
     

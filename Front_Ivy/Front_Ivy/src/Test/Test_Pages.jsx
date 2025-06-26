@@ -6,6 +6,9 @@ import AboutUs from '../User/Components/About_US'
 import Comentarios from "../Detalles/Components/Comentarios"
 import  Cards from "../Multi_Components/Cards"
 import Solicitar from "../Detalles/Components/Solicitar"
+import  Add_Usuarios  from  "../Admi/Components/Add_Usuarios.jsx"
+import B_Categories from '../Admi/Components/B_Categories.jsx'
+
 function Test_Pages() {
   return (
     <div>
@@ -17,11 +20,13 @@ function Test_Pages() {
         <Trabajador />
         <br />
         <Cards/>
-
+        <Add_Usuarios />
         <Add_Servicios />
         <AboutUs/>
         <Comentarios />
         <Solicitar />
+        <B_Categories />
+
 
     </div>
   )   
