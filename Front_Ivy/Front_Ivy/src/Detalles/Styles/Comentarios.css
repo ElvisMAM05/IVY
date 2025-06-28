@@ -10,7 +10,9 @@
   color: #21a179;
   margin-bottom: 20px;
 }
-
+.prueba{
+  font-size: 1px  !important;
+}
 textarea {
   width: 100%;
   padding: 12px;
@@ -47,3 +49,8 @@ button:hover {
   color: #555;
   margin-top: 4px;
 }
+.t{
+  width: 20px !important;
+  height: 20px !important;
+}
+

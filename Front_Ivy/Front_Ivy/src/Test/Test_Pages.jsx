@@ -11,28 +11,19 @@ import B_Categories from '../Admi/Components/B_Categories.jsx'
 import B_Servicios from '../Admi/Components/B_Servicios.jsx'
 import B_Usuarios from '../Admi/Components/B_Usuarios.jsx'
 import E_Categories from '../Admi/Components/E_Categories.jsx'
-
+import E_Servicios from '../Admi/Components/E_Servicios.jsx'
+import Nav_Bar_A from '../Admi/Components/Nav_Bar_A.jsx'
+import Panel from '../Admi/Components/Panel.jsx'
 function Test_Pages() {
   return (
     <div>
-        <h1>Test Page</h1>
-        <p>This is a test page for adding categories.</p>
-        <Nav_IVY/> 
-        <p>Feel free to add more components or functionality here.</p>
 
-        <Trabajador />
-        <br />
-        <Cards/>
-        <Add_Usuarios />
-        <Add_Servicios />
-        <AboutUs/>
-        <Comentarios />
-        <Solicitar />
-        <B_Categories />
-        <B_Servicios />
-        <B_Usuarios />
-        <E_Categories />
-        <br />
+<Panel />
+  
+
+       
+
+  
 
 
     </div>

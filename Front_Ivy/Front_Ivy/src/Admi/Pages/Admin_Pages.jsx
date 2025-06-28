@@ -1,26 +1,46 @@
 import React from 'react'
 import Admin from '../Components/Admin.jsx'
 import Footer from '../../Multi_Components/Footer.jsx'
-import  Navbar from '../../Multi_Components/NavBar_C.jsx'
+import Nav_Bar_A from '../Components/Nav_Bar_A.jsx'
+import E_Categories from '../Components/E_Categories.jsx'
+import E_Servicios from '../Components/E_Servicios.jsx'
+import B_Categories from '../Components/B_Categories.jsx'
+import B_Servicios from '../Components/B_Servicios.jsx'
+import B_Usuarios from '../Components/B_Usuarios.jsx'
+import { Nav } from 'react-bootstrap'
 
 
 function Admin_Pages() {
   return (
     <>
-       <div className='admin'>
-        <h1>Panel de Administración</h1>
-    </div>
-       <div>
-        <Admin />
-    </div>
-    <div>
-    
-    </div>
+     
+      <Nav_Bar_A />
+      <Admin />
+      <Nav className="justify-content-center">
+        <Nav.Item>
+          <Nav.Link href="#editar-categorias">Editar Categorías</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="#editar-servicios">Editar Servicios</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="#borrar-categorias">Borrar Categorías</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="#borrar-servicios">Borrar Servicios</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="#borrar-usuarios">Borrar Usuarios</Nav.Link>
+        </Nav.Item>
+      </Nav>
 
-    <div>
-    <Footer />
-    </div>
-        
+      <E_Categories />
+      <E_Servicios />
+      <B_Categories />
+      <B_Servicios />
+      <B_Usuarios />
+
+      <Footer />
     
     </>
  

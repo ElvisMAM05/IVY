@@ -83,6 +83,7 @@ function Admin() {
                 </div>
             )}
                 <br />
+
             {mostrarCategorias &&(
             <div className="admin-data">
                 <h2>Categorías</h2>
@@ -101,8 +102,9 @@ function Admin() {
             )}
 
                     <br />
+
                     {mostrarServicios&&(
-             <div className="admin-data">
+            <div className="admin-data">
                 <h2>Servicios</h2>
                 {servicios.length > 0 ? (
                     <div>
@@ -116,9 +118,14 @@ function Admin() {
                 <Add_Servicios />
                 
             </div>
-    )}
+    )} 
+    <div className='admin-Buttons'>
+
+        <button className='admin-Button'> <a href="/"></a> Editar o borrar</button>
+    </div>
+
+    </div>
  
-        </div>
     )
 }
 

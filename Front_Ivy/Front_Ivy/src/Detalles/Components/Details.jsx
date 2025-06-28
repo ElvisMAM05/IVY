@@ -12,10 +12,6 @@ function Details() {
   localStorage.setItem("servicioId", servicioId); // Guarda el ID en localStorage
   const [servicio, setServicio] = useState(null);
  
-
-
-
-
   const id = servicioId; // Asegúrate de que este ID sea el correcto según tu API
   console.log("Servicio ID:", id); // Verifica que el ID se esté recibiendo correctamente
   const idServicio = servicioIds; // Asegúrate de que este ID sea el correcto según tu API
@@ -42,7 +38,7 @@ function Details() {
       <p><strong>Categoría:</strong> {servicio.Categoria_Servicio.nombre_c}</p>
       <p><strong>Descripción:</strong> {servicio.descripcion_larga}</p>
 
-     <Solicitar servicioIds={idServicio} />
+     <Solicitar/>
     <Comentarios servicioId={id} />
      
 

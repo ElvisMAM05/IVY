@@ -6,6 +6,7 @@ import "../Styles/Usuarios.css";
 
 function Usuario() {
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");

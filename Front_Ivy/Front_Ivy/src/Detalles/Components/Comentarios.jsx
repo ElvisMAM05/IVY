@@ -2,7 +2,7 @@
 import { useParams } from 'react-router-dom';
 import Fetch from '../../Services/Fetch';
 import "../Styles/Comentarios.css"; 
-
+import Opciones from "../../Multi_Images/Opciones.svg"; // Asegúrate de que esta ruta sea correcta
 function Comentarios() {
   const { servicioId } = useParams();
   console.log("Servicio ID:", servicioId);
@@ -62,6 +62,7 @@ function Comentarios() {
       </form>
 
       <div className="comentarios-lista">
+     
         {comentarios.length > 0 ? (
           comentarios.map((comentario, index) => (
             <div key={index} className="comentario-item">
@@ -71,6 +72,8 @@ function Comentarios() {
                   {new Date(comentario.fecha).toLocaleString()}
                 </span>
               )}
+              <img className='t' src={Opciones} alt="" /> 
+
             </div>
           ))
         ) : (

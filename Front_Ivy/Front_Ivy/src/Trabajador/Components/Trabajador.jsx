@@ -6,7 +6,7 @@ import Solicitar from "../../Detalles/Components/Solicitar.jsx";
 
 function Trabajador() {
   const [Servicios, setTrabajos] = useState([]);
-
+ 
   async function Obtener_trab() {
     const response = await Fetch.getData("api/Servicios/");
     setTrabajos(response);
@@ -29,11 +29,10 @@ function Trabajador() {
             <h2>{Trabajo.nombre_servicio}</h2>
             <p>{Trabajo.descripcion_Servicio}</p>
 
-                 <Solicitar servicioId={Trabajo.id} />
 
-            <Link className="Links" to={`/Details/${Trabajo.id}`}><button className="btn-solicitar" >Ver Más</button></Link>
-
-       
+            <Link className="Links" to={`/Details/${Trabajo.id}`}>
+            <button className="btn-solicitar">Ver Más</button>
+            </Link>
           </div>
         ))}
       </div>
