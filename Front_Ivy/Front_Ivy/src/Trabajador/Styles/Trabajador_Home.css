@@ -1,0 +1,39 @@
+.Trabajador_Container {
+  padding: 30px;
+  background-color: #f6fbf8;
+  min-height: 100vh;
+}
+
+.Trabajador_Container h2 {
+  color: #21a179;
+  font-weight: 600;
+}
+
+.texto-inicio {
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.servicio-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.servicio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+}
+
+.no-servicios {
+  font-style: italic;
+  color: #888;
+}

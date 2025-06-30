@@ -2,13 +2,14 @@ import Fetch from "../../Services/Fetch";
 import "../../Log-in/styles/S_Log_in.css"
 import IVY_2_1 from "../../Log-in/Images/IVY_2_1.png"
 import Logo from "../../Logo/Logo.png"
-import { useState } from 'react'
+import { useState,} from 'react'
 import Swal from 'sweetalert2';
-import{Link} from 'react-router-dom'
+import{Link,useNavigate} from 'react-router-dom'
 import React from 'react'
 function Log_in() {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
+  const navigate=useNavigate("")
 
 async function Send(e) {
   e.preventDefault();
@@ -29,6 +30,10 @@ async function Send(e) {
   if (peticion.exito) {
     localStorage.setItem("token", peticion.token);
     localStorage.setItem("id", peticion.id);
+    localStorage.setItem("grupo", peticion.grupo); 
+
+  
+      
 
     Swal.fire({
       position: "top-end",
@@ -38,7 +43,17 @@ async function Send(e) {
       showConfirmButton: false,
       timer: 1500
     }).then(() => {
-      window.location.href = "/usuario"; // Redirige al usuario a la página de usuario
+        if (peticion.grupo === "Administrador") {
+            navigate("/admin"); 
+          } else if (peticion.grupo === "Cliente") {  
+            navigate("/usuario"); 
+          }
+             else if (peticion.grupo === "Trabajador") {
+            navigate("/Trabajador"); 
+          }
+        else{
+          console.log("eeee")
+        }
     });
   } else if (peticion.Error) {
     alert(peticion.Error);

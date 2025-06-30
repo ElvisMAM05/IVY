@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Fetch from "../../src/Services/Fetch.jsx";
 //import "../Styles/Trabajador_style.css";
 import Solicitar from "../Detalles/Components/Solicitar.jsx";
+import Details from "../Detalles/Components/Details.jsx"
 
 function TrabajosCategoria() {
   const { categoriaId } = useParams();
@@ -30,6 +31,8 @@ function TrabajosCategoria() {
             <h2>{servicio.nombre_servicio}</h2>
             <p>{servicio.descripcion_Servicio}</p>
             <Solicitar servicioId={servicio.id} />
+            <button >Ver más</button>
+          
           </div>
         ))}
       </div>

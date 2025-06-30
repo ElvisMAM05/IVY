@@ -1,0 +1,47 @@
+.Editar_Categorias_Container {
+  background-color: #f0f7f5;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  font-family: inherit;
+}
+
+.Editar_Categorias_Container h2 {
+  color: #21a179;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.Categoria_Item {
+  background-color: white;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.Categoria_Item:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.Categoria_Item strong {
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.Categoria_Item .text-muted {
+  font-size: 0.85rem;
+}
+
+.btn-editar {
+  background-color: #3c805e !important;
+  color: white !important;
+  border: none !important;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-editar:hover {
+  background-color: #2f644a !important;
+}

@@ -119,10 +119,7 @@ function Admin() {
                 
             </div>
     )} 
-    <div className='admin-Buttons'>
-
-        <button className='admin-Button'> <a href="/"></a> Editar o borrar</button>
-    </div>
+  
 
     </div>
  

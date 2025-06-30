@@ -1,8 +1,9 @@
 import React from 'react'
+import Trabajador_Home from '../Components/Trabajador_Home'
 
 function Trabajador_Page() {
   return (
-    <div>Trabajador_Page</div>
+   <Trabajador_Home/>
   )
 }
 

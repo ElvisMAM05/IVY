@@ -24,7 +24,7 @@ from .serializers import (
 Roles posibles:
 - Trabajador
 - Administrador
-- Clientep
+- Cliente
 """
 
 # ─── PERMISOS PERSONALIZADOS SEGÚN ROL ────────────────────────────────────────
@@ -78,6 +78,8 @@ class UserAPI(APIView):
 
         Usuario.objects.create(usuario=usuario, identificacion=identificacion, edad=edad)
 
+        usuario.groups.add(Group.objects.get(name="Cliente"))  # Asignar grupo Cliente
+        
         return Response({"exito": "Usuario creado"}, status=status.HTTP_201_CREATED)
 
 # ─── AUTENTICACIÓN ─────────────────────────────────────────────────────────────
@@ -92,7 +94,8 @@ class User_validate(APIView):
         if user is not None:
             token = AccessToken.for_user(user)
             usuarioID = Usuario.objects.get(usuario=user.id).id
-            return Response({"exito": "Usuario encontrado", "token": str(token),"id":str(usuarioID)},status=201)
+            grupo_usuario = user.groups.first().name if user.groups.exists() else None
+            return Response({"exito": "Usuario encontrado", "token": str(token),"id":str(usuarioID),"grupo":str(grupo_usuario)},status=201)
         else:
             return Response({"Error": "Usuario no existente"}, status=404)
 
