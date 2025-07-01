@@ -77,7 +77,7 @@ class UserAPI(APIView):
         # Creación del usuario
         usuario = User.objects.create_user(username=username, password=password, email=correo)
 
-        Usuario.objects.create(usuario=usuario, identificacion=identificacion, edad=edad)
+        Usuario.objects.create(usuario=usuario, identificacion=identificacion, edad=edad, Imagen_U=Foto)
 
         usuario.groups.add(Group.objects.get(name="Cliente"))  # Asignar grupo Cliente
         

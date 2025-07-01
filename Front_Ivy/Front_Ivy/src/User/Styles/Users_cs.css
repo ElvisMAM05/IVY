@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 50px;
-  background: linear-gradient(135deg, #0a3d2f, #21a179); /* Verde IVY */
+  background-color: linear-gradient(135deg, #0a3d2f, #21a179); /* Verde IVY */
   color: white;
 }
 
@@ -78,7 +78,7 @@
   flex-direction: column;
   align-items: center;
   padding: 50px;
-  background: linear-gradient(135deg, #0a3d2f, #21a179);
+  background: linear-gradient(135deg, #bed4ce, #21a179);
   color: white;
   animation: fadeIn 1s ease-in-out; /* ✨ Animación de entrada */
 }

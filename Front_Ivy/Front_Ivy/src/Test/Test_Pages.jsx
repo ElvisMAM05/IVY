@@ -13,12 +13,13 @@ import Servicios_CRUD from '../Admi/Components/Servicios_Full.jsx'
 import Categories_Full from '../Admi/Components/Categories_Full.jsx'
 import Trabajador_Home from '../Trabajador/Components/Trabajador_Home.jsx'
 import Perfil from "../Perfil/Components/Perfil.jsx"
+import Rol_Cambio from '../Multi_Components/Rol_Cambio.jsx'
 
 function Test_Pages() {
   return (
     <div>
 
-<Perfil/>
+<Rol_Cambio/>
 
      
   

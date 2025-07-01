@@ -12,18 +12,7 @@ h1 {
     color:#00A651; 
     margin-bottom: 20px;
 }
-.header-image {
-    display: block;
-    width: 100%;
-    max-width: 100px; /* Ajusta según necesites */
-}
-.header-image_izq {
-    position: absolute;
-    margin-top: 20px;
-    margin-left: 200px; /* Mueve la imagen hacia la izquierda */
-    width: 100%;
-    max-width: 100px;
-}
+
 
 .form-group {
     display: flex;

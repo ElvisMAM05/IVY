@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Categories from '../../User/Components/Categories';
 import Trabajador from '../../Trabajador/Components/Trabajador';
 import "../Styles/Usuarios.css";
+import Rol_Cambio from '../../Multi_Components/Rol_Cambio';
 
 function Usuario() {
   const navigate = useNavigate();
@@ -35,7 +36,15 @@ function Usuario() {
         <h3 id='Servicios'>Servicios disponibles</h3>
         <Trabajador modoUsuario={true} />
       </section>
+<br />
+      <div className="Cambio-rol">
+      <h2>¿Quieres formar parte de nuestra familia?</h2>
+      <p className='Parrafo' >Unete a nuestro equipo de trabajadores y ofrece tus servicios laborales a todos nuestros usuarios</p>
+        <Rol_Cambio/>
+      </div>
     </div>
+
+    
   );
 }
 

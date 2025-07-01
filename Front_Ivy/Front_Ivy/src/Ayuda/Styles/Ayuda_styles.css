@@ -1,0 +1,110 @@
+.Ayuda_Container {
+  padding: 40px;
+  background-color: #e8f5f0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ayuda-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.faq-section {
+  flex: 2;
+}
+
+.faq-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #21a179;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #21a179;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.intro-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.faq-section h4 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 24px;
+  color: #2e7b66;
+}
+
+.faq-section p {
+  font-family: 'Inter', 'Times New Roman', Times, serif;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.faq-section p:hover{
+  color: black;
+  
+}
+
+.ayuda-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ayuda-side-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.ayuda-side-card h5 {
+  color: #2e7b66;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.ayuda-side-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ayuda-side-card li {
+  margin: 6px 0;
+}
+
+.ayuda-side-card a {
+  color: #21a179;
+  text-decoration: none;
+}
+
+.ayuda-side-card a:hover {
+  text-decoration: underline;
+}
+
+.btn-ayuda-formulario {
+  margin-top: 10px;
+  background-color: #21a179;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.btn-ayuda-formulario:hover {
+  background-color: #1e8a70;
+}

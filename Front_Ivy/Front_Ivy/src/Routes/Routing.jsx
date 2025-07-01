@@ -10,6 +10,8 @@ import Usuario_page from "../Usuario/Pages/Usuario_page"
 import Welcome from "../Usuario/Components/Welcome"
 import TrabajosCategoria from "../Multi_Components/Categoria_Servicios"
 import Trabajador_Page from "../Trabajador/Pages/Trabajador_Page"
+import Perfil_Pages from "../Perfil/Pages/Perfil_Pages"
+import Ayuda_page from "../Ayuda/Pages/Ayuda_page"
 function Routing() {
 
   return (
@@ -28,6 +30,9 @@ function Routing() {
         <Route path='Welcome' element={<Welcome/>}/>
         <Route path="/TrabajosCategoria/:categoriaId" element={<TrabajosCategoria />} />
         <Route path="/Trabajador" element={<Trabajador_Page/>}></Route>
+        <Route path="/Perfil" element={<Perfil_Pages/>}></Route>
+        <Route path="/Ayuda" element={<Ayuda_page/>}></Route>
+
         {/* Add more routes as needed */}
 
           

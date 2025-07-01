@@ -1,23 +1,55 @@
 .Footer {
-  background: linear-gradient(135deg, #0a3d2f, #21a179); /* Fondo verde IVY */
-  padding: 20px;
-  text-align: center;
+  background-color: #2e7b66;
   color: white;
-  font-size: 1rem;
-  position: relative;
-  bottom: 0;
-  width: 100%;
+  padding: 20px 40px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .Footer_Container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
   align-items: center;
 }
 
-.Footer_Text {
-  margin: 5px 0;
-  font-weight: 300;
-  letter-spacing: 1px;
-  opacity: 0.8;
+.Footer_Left {
+  flex: 1;
+}
+
+.Footer_Brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.Footer_Credits,
+.Footer_Patent {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.Footer_Patent span {
+  font-weight: 600;
+  color: #b0f0db;
+}
+
+.Footer_Right {
+  text-align: right;
+}
+
+.Footer_Contacto {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.Footer_Icons a {
+  margin-left: 10px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.Footer_Icons a:hover {
+  color: #d0f7e7;
 }
