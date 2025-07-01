@@ -59,6 +59,7 @@ class UserAPI(APIView):
         correo = request.data.get("correo")
         identificacion = request.data.get("identificacion")
         edad = request.data.get("edad")
+        Foto= request.data.get("Imagen_U")
 
         # Validaciones previas
         if User.objects.filter(username=username).exists():

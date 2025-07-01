@@ -1,0 +1,35 @@
+.nav-ivy {
+ background-color: #c2dda8 !important;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 12px 24px;
+}
+
+.nav-ivy .navbar-logo {
+  height: 36px;
+  border-radius: 4px;
+}
+
+.nav-logo {
+  cursor: pointer;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+}
+
+.nav-ivy .nav-link {
+  color: #000000;
+  margin-left: 16px;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-ivy .nav-link:hover {
+  color: rgb(255, 0, 0);
+}
+
+.active-link {
+  color: white !important;
+  font-weight: 600;
+  text-decoration: underline;
+}

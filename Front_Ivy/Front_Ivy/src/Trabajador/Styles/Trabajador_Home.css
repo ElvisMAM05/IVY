@@ -1,39 +1,75 @@
 .Trabajador_Container {
-  padding: 30px;
-  background-color: #f6fbf8;
+  padding: 40px;
+  background: linear-gradient(135deg, #e8f5f0, #ffffff);
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
 .Trabajador_Container h2 {
-  color: #21a179;
-  font-weight: 600;
+  font-size: 2.2rem;
+  color: #1f8a6c;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .texto-inicio {
-  color: #444;
-  margin-bottom: 24px;
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+  color: #5c5c5c;
 }
 
 .servicios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
 }
 
 .servicio-card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease-in-out;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+  transition: all 0.25s ease-in-out;
+  border-left: 4px solid #2e7b66;
 }
 
 .servicio-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+  border-left-color: #3c805e;
+}
+
+.servicio-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a5e4c;
+}
+
+.servicio-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
 }
 
 .no-servicios {
+  grid-column: 1/-1;
   font-style: italic;
-  color: #888;
+  color: #999;
+  font-size: 1rem;
+}
+
+.servicios-grid > div:last-child {
+  background: #eef8f4;
+  border: 2px dashed #a8d1c3;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.servicios-grid > div:last-child:hover {
+  background: #dff1ea;
 }

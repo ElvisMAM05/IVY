@@ -13,6 +13,9 @@ function Register() {
   const [User_age, setUser_age] = useState("");
   const [User_password, setUser_password] = useState("");
   const [User_ID, setUser_ID] = useState("");
+  const [Imagen,setImagen]=useState("")
+ 
+
 
 
 
@@ -23,7 +26,8 @@ function Register() {
         "correo": User_email,
         "edad": User_age,
         "password": User_password,
-        "identificacion": User_ID
+        "identificacion": User_ID,
+        "Imagen_U":Imagen
     }
     const peticion = await Fetch.postData(objUsuario,"api/usuario/")
 
@@ -53,6 +57,17 @@ then(() => {
     }
   }
 
+  const handleOpen = () => setOpen(true);
+    const handleClose = () => {
+        setOpen(false);
+        setNombreCategoria('');
+        setImageUrl('');
+    };
+
+    const handleImageUpload = (url) => {
+        setImageUrl(url);
+    };
+
 
   return (
     <>
@@ -76,6 +91,29 @@ then(() => {
           <img src={IVY_2_1} alt="Decoración" className="input-icon" />
           <input placeholder="Password" className="input-field" value={User_password} onChange={(e)=>setUser_password(e.target.value)} type="password"/>
           <img src={IVY_2_1} alt="Decoración" className="input-icon" />
+           <div className="upload-section">
+                                      <Typography variant="subtitle1" sx={{ mb: 1, fontWeight: 'bold' }}>
+                                          Imagen representativa:
+                                      </Typography>
+                                      <IMGS onUploadComplete={handleImageUpload} />
+                                      {imageUrl && (
+                                          <div className="image-preview" style={{ marginTop: '10px' }}>
+                                              <Typography variant="caption">Vista previa:</Typography>
+                                              <img 
+                                                  src={imageUrl} 
+                                                  alt="Preview categoría" 
+                                                  style={{ 
+                                                      maxWidth: '100%', 
+                                                      maxHeight: '150px',
+                                                      display: 'block',
+                                                      margin: '10px auto',
+                                                      border: '1px solid #ddd',
+                                                      borderRadius: '4px'
+                                                  }} 
+                                              />
+                                          </div>
+                                      )}
+                                  </div>
           <br />
           <a href="/Log">¿Ya tienes cuenta?</a>
           <br />

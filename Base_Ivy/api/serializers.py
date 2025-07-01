@@ -15,7 +15,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(source="usuario.email", read_only=True)  
     class Meta:
         model = Usuario
-        fields = ["user_id","username","email", "identificacion", "edad","id"]
+        fields = ["user_id","username","email", "identificacion", "edad","id","Imagen_U"]
         
         
 class ServiciosSerializer(serializers.ModelSerializer):
