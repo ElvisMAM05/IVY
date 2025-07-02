@@ -1,0 +1,61 @@
+.Configuracion_Container {
+  background: #f7fbf9;
+  padding: 40px;
+  max-width: 700px;
+  margin: 60px auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.Configuracion_Container h2 {
+  color: #21a179;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.Config_Section {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.Config_Section h4 {
+  color: #2e7b66;
+  margin-bottom: 16px;
+}
+
+.Config_Item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #eef8f3;
+  font-size: 0.95rem;
+}
+
+.btn-config {
+  background-color: #21a179;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  margin-right: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-config:hover {
+  background-color: #1e8c6c;
+}

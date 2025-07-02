@@ -17,7 +17,7 @@ urlpatterns = [
     path('ServiciosE/<int:pk>/', ServiciosRetrieveDestroy.as_view()),
     path('Usuarios/', UsuarioListCreate.as_view()),
     path('Usuarios/<int:pk>/', UsuarioRetrieveDestroy.as_view()),
-    path('Roles/',RolView.as_view()),
+    path('usuarios/rol/', RolView.as_view()),
     path('Servicios/<int:pk>/', ServicioDetailView.as_view()),
     path('comentarios/', ComentariosListCreate.as_view()),
     path('Comentarios/<int:servicio_id>/', ComentariosListCreate.as_view()),

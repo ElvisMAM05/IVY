@@ -20,7 +20,7 @@ function NavbarC() {
             <NavDropdown title="  Otras opciones" id="user-nav-dropdown">
               <NavDropdown.Item href="/Log">Inicia sesión</NavDropdown.Item>
               <NavDropdown.Item href="/Register">Registrate</NavDropdown.Item>
-              <NavDropdown.Item href="/Log">Configuración</NavDropdown.Item>
+              <NavDropdown.Item href="/Configuracion">Configuración</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

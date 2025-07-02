@@ -12,6 +12,7 @@ import TrabajosCategoria from "../Multi_Components/Categoria_Servicios"
 import Trabajador_Page from "../Trabajador/Pages/Trabajador_Page"
 import Perfil_Pages from "../Perfil/Pages/Perfil_Pages"
 import Ayuda_page from "../Ayuda/Pages/Ayuda_page"
+import Configuración_Page from "../Configuraciones/Pages/Configuración_Page.jsx"
 function Routing() {
 
   return (
@@ -32,6 +33,8 @@ function Routing() {
         <Route path="/Trabajador" element={<Trabajador_Page/>}></Route>
         <Route path="/Perfil" element={<Perfil_Pages/>}></Route>
         <Route path="/Ayuda" element={<Ayuda_page/>}></Route>
+        <Route path="/Configuracion" element={<Configuración_Page/>}></Route>
+
 
         {/* Add more routes as needed */}
 
