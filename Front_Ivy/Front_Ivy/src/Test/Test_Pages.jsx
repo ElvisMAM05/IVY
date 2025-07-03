@@ -15,12 +15,13 @@ import Trabajador_Home from '../Trabajador/Components/Trabajador_Home.jsx'
 import Perfil from "../Perfil/Components/Perfil.jsx"
 import Rol_Cambio from '../Multi_Components/Rol_Cambio.jsx'
 import Configuracion from '../Configuraciones/Components/Configuracion.jsx'
+import App from '../Admi/Components/Estadisticas.jsx'
 
 function Test_Pages() {
   return (
     <div>
 
-<Configuracion/>
+<App/>  
 
      
   

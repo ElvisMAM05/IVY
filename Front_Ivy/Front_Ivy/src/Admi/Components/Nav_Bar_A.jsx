@@ -2,8 +2,21 @@ import React from 'react';
 import { Navbar, Container, Nav, Offcanvas, NavDropdown } from 'react-bootstrap';
 import Logo from "../../Logo/Logo.png";
 import '../Styles/Nav_Bar_A_Styles.css';
+import { useNavigate } from 'react-router-dom'
 
 function Nav_Bar_A({ onSeleccionar, activa }) {
+    const navigate= useNavigate()
+
+  function Home(){
+
+    navigate("/")
+  } 
+
+  function Usuarios(){
+
+    navigate("/usuario")
+
+  }
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -43,10 +56,10 @@ function Nav_Bar_A({ onSeleccionar, activa }) {
                 <NavDropdown.Item onClick={() => onSeleccionar("AgregarUsuarios")}>
                   Permisos 
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={() => onSeleccionar("EditarUsuarios")}>
+                <NavDropdown.Item onClick={Home}>
                   Visitar Home
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={() => onSeleccionar("RolesPermisos")}>
+                <NavDropdown.Item onClick={Usuarios}>
                   Visitar Usuarios
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
