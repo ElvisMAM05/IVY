@@ -2,8 +2,17 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Logo from "../../Logo/Logo.png";
 import "../Styles/Nav_Bar_T.css"; // Estilo nuevo
+import { useNavigate } from 'react-router-dom'
 
-function NavBar_T({ activa, onSeleccionar }) {
+function NavBar_T({  activa, onSeleccionar }) {
+  const navigate=useNavigate()
+
+  function Perfil(){
+    navigate("/Perfil")
+  }
+
+
+
   return (
     <Navbar expand="lg" className="nav-ivy" sticky="top">
       <Container fluid>
@@ -23,7 +32,7 @@ function NavBar_T({ activa, onSeleccionar }) {
             <Nav.Link className={activa === "Solicitudes" ? "active-link" : ""} onClick={() => onSeleccionar("Solicitudes")}>
               Solicitudes
             </Nav.Link>
-            <Nav.Link className={activa === "Perfil" ? "active-link" : ""} onClick={() => onSeleccionar("Perfil")}>
+            <Nav.Link onClick={Perfil}>
               Perfil
             </Nav.Link>
           </Nav>

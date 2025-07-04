@@ -8,15 +8,12 @@ function Nav_Bar_A({ onSeleccionar, activa }) {
     const navigate= useNavigate()
 
   function Home(){
-
     navigate("/")
   } 
-
   function Usuarios(){
-
     navigate("/usuario")
-
   }
+ 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -46,12 +43,10 @@ function Nav_Bar_A({ onSeleccionar, activa }) {
               <Nav.Link className={activa === "Servicios" ? "active-link" : ""} onClick={() => onSeleccionar("Servicios")}>
                 Servicios
               </Nav.Link>
-              <Nav.Link className={activa === "BorrarCategorias" ? "active-link" : ""} onClick={() => onSeleccionar("BorrarCategorias")}>
-                Roles
-              </Nav.Link>
-              <Nav.Link className={activa === "BorrarServicios" ? "active-link" : ""} onClick={() => onSeleccionar("BorrarServicios")}>
+              <Nav.Link className={activa === "Estadisticas" ? "active-link" : ""} onClick={() => onSeleccionar("Estadísticas")}>
                 Estadísticas 
               </Nav.Link>
+              
               <NavDropdown title="Más Opciones" id="offcanvasNavbarDropdown">
                 <NavDropdown.Item onClick={() => onSeleccionar("AgregarUsuarios")}>
                   Permisos 

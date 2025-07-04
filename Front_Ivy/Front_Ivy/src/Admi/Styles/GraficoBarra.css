@@ -1,0 +1,9 @@
+.GraficoBarra_Container {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 50px auto;
+  font-family: 'Segoe UI', sans-serif;
+}

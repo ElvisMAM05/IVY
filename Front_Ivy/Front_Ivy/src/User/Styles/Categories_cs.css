@@ -1,82 +1,63 @@
 .Categories_Page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
-  background: linear-gradient(135deg, #0a3d2f, #21a179); /* Verde IVY */
-  color: white;
+  background: linear-gradient(140deg, #f0fbf4, #e8f5fc);
+  padding: 3rem 2rem;
+  min-height: 100vh;
 }
 
 .Categories_Container {
-  width: 90%;
-  max-width: 1000px;
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
 }
 
 .Categories_Title {
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  color: #21a179;
-  margin-bottom: 20px;
+  font-size: 2.2rem;
+  color: #1a3b5d;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .Categories_Description {
-  font-size: 1.2rem;
-  color: #b51616;
-  margin-bottom: 30px;
+  font-size: 1.1rem;
+  color: #4b6c84;
+  margin-bottom: 2.5rem;
 }
 
 .Categories_List {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 0 1rem;
 }
 
 .Category_Card {
-  background: #E3F2E9;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 250px;
-  transition: transform 0.3s ease-in-out;
-  cursor: pointer;
-    text-decoration: none;
-  color:inherit;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0px 10px 24px rgba(123, 220, 181, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Category_Card:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px);
+  box-shadow: 0px 16px 32px rgba(26, 59, 93, 0.15);
 }
 
-.Category_Card img {
+.Category_Image {
   width: 100%;
-  border-radius: 8px;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 4px solid #7bdcb5;
 }
 
-.Category_Card h2 {
-  font-size: 1.5rem;
-  color: #21a179;
-  margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-  .Categories_List {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .Category_Card {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-    .Category_Card img {
-        height: 170px; /* Ajusta la altura de las imágenes */
-        object-fit: cover; /* Mantiene la proporción de la imagen */
-    }
+.Category_Name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a3b5d;
+  margin: 1rem 0;
 }

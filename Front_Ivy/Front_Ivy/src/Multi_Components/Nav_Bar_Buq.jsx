@@ -20,8 +20,8 @@ function NavIVY() {
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 nav-links-ivy" navbarScroll>
             <Nav.Link href="/usuario">Inicio</Nav.Link>
-            <Nav.Link href="#Categorías">Categorías</Nav.Link>
-            <Nav.Link href="#Servicios">Servicios</Nav.Link>
+            <Nav.Link href="/usuario#Categorías">Categorías</Nav.Link>
+            <Nav.Link href="/usuario#Servicios">Servicios</Nav.Link>
             <NavDropdown title="Perfil" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/Perfil">Mi Perfil</NavDropdown.Item>
               <NavDropdown.Item href="/historial">Historial</NavDropdown.Item>

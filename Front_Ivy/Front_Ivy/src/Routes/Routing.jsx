@@ -13,6 +13,7 @@ import Trabajador_Page from "../Trabajador/Pages/Trabajador_Page"
 import Perfil_Pages from "../Perfil/Pages/Perfil_Pages"
 import Ayuda_page from "../Ayuda/Pages/Ayuda_page"
 import Configuración_Page from "../Configuraciones/Pages/Configuración_Page.jsx"
+import Historial_Pages from "../Usuario/Pages/Historial_Pages.jsx"
 function Routing() {
 
   return (
@@ -34,6 +35,8 @@ function Routing() {
         <Route path="/Perfil" element={<Perfil_Pages/>}></Route>
         <Route path="/Ayuda" element={<Ayuda_page/>}></Route>
         <Route path="/Configuracion" element={<Configuración_Page/>}></Route>
+         <Route path="/Historial" element={<Historial_Pages/>}></Route>
+
 
 
         {/* Add more routes as needed */}
