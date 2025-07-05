@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav_IVY from "../Multi_Components/Nav_Bar_Buq"
 import Trabajador from '../Trabajador/Components/Trabajador'
-import Add_Servicios from '../Admi/Components/add_Servicios'
+
 import AboutUs from '../User/Components/About_US'
 import Comentarios from "../Detalles/Components/Comentarios"
 import  Cards from "../Multi_Components/Cards"
@@ -21,6 +21,7 @@ import Comentarios_U from '../Usuario/Components/Comentarios_U.jsx'
 import HistorialUsuario from "../Multi_Components/HistorialUsuario.jsx"
 import  HistorialSolicitantes from "../Trabajador/Components/Mis_Servicios.jsx"
 import Edit_Servicios from '../Trabajador/Components/Edit_Servicios.jsx'
+import Add_MiServicio from "../Admi/Components/Services.jsx"
 
 
 function Test_Pages() {
@@ -30,6 +31,7 @@ function Test_Pages() {
 <HistorialUsuario/>
 <HistorialSolicitantes/>
 <Edit_Servicios/>
+<Add_MiServicio/>
 
      
   

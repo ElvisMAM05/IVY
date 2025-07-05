@@ -11,6 +11,14 @@ function NavBar_T({  activa, onSeleccionar }) {
     navigate("/Perfil")
   }
 
+  function add(){
+    navigate("/AddPages")
+  }
+  function trab(){
+
+    navigate("/Trabajador")
+  }
+
 
 
   return (
@@ -23,10 +31,10 @@ function NavBar_T({  activa, onSeleccionar }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link className={activa === "MisServicios" ? "active-link" : ""} onClick={() => onSeleccionar("MisServicios")}>
+            <Nav.Link onClick={trab}>
               Mis Servicios
             </Nav.Link>
-            <Nav.Link className={activa === "AgregarServicio" ? "active-link" : ""} onClick={() => onSeleccionar("AgregarServicio")}>
+            <Nav.Link onClick={add}>
               Agregar Servicio
             </Nav.Link>
             <Nav.Link className={activa === "Solicitudes" ? "active-link" : ""} onClick={() => onSeleccionar("Solicitudes")}>
